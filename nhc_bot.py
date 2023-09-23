@@ -7,6 +7,7 @@ from config import API_TOKEN, API_BASE_URL
 import re
 import argparse
 import json
+import datetime
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
@@ -31,9 +32,13 @@ def check_rss_updated(CURRENT_URL):
                for x in our_headers), new_data
 
 
+def json_write(data, file_name):
+    with open(file_name, 'w') as f:
+        json.dump(data, f)
+
+
 def write_new_status_data(status_data):
-    with open('status_data.json', 'w') as f:
-        json.dump(status_data, f)
+    json_write(status_data, 'status_data.json')
 
 
 def process_url(url):
@@ -44,12 +49,23 @@ def process_url(url):
     return [process_item(x) for x in theitems]
 
 
+def check_summary_guid_change(data_for_post):
+    try:
+        with open('full_post_data.json', 'r') as f:
+            old_post_data = json.load(f)
+    except:
+        old_post_data = {}
+
+    return old_post_data.get('summary_guid') != data_for_post['summary_guid']
+
+
 def process_data(data_list):
     """extract the needed data for Mastodon"""
     out = {}
     out['full_advisory_link'] = data_list[2]['link']
     out['full_advisory_title'] = data_list[2]['title']
     out['summary_title'] = data_list[1]['title']
+    out['summary_guid'] = data_list[1]['guid']
     out['summary'] = html2text(data_list[1]['description']).replace('\n', ' ')
     soup = BeautifulSoup(data_list[6]['description'], 'html.parser')
     out['graphic_data'] = requests.get(soup.find('img')['src']).content
@@ -88,6 +104,18 @@ def make_post_content(data_for_post):
     return post_content
 
 
+def make_and_post(post_content):
+
+    m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
+    med_dict = m.media_post(data_for_post['graphic_data'],
+                            mime_type='image/png')
+    out = m.status_post(post_content, media_ids=med_dict)
+    print(
+        f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+    )
+    write_new_status_data(status_data=status_data)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--nopost', action='store_true', default=False)
@@ -97,23 +125,21 @@ if __name__ == "__main__":
     is_updated, status_data = check_rss_updated(CURRENT_URL)
     if is_updated or args.force_update:
         if args.force_update:
-            print("update forced, ignoring status data.")
+            print("update forced, ignoring status header data.")
 
         data_for_post = process_data(process_url(CURRENT_URL))
         post_content = make_post_content(data_for_post)
 
-        if not args.nopost:
-            m = Mastodon(access_token=API_TOKEN,
-                         api_base_url='https://vmst.io')
-            med_dict = m.media_post(data_for_post['graphic_data'],
-                                    mime_type='image/png')
-            out = m.status_post(post_content, media_ids=med_dict)
-            print(
-                f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
-            )
-            write_new_status_data(status_data=status_data)
+        if check_summary_guid_change(data_for_post):
+
+            make_and_post(post_content)
+
         else:
+            print(
+                f"Guid for summary unchanged at {datetime.datetime.now().isoformat()}"
+            )
+            print("No posting to Mastodon")
+            write_new_status_data(status_data)
             print(post_content)
-            print(f"Length: {len(post_content)}")
     else:
         print("No updated feed data.")
