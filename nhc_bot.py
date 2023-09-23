@@ -6,6 +6,7 @@ from mastodon import Mastodon
 from config import API_TOKEN, API_BASE_URL
 import re
 import argparse
+import json
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
@@ -13,6 +14,26 @@ CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 def process_item(item):
     """process one rss item into a dictionary"""
     return {x.tag: x.text for x in item}
+
+
+def check_rss_updated(CURRENT_URL):
+    our_headers = ["Last-Modified", "etag"]
+    try:
+        with open('status_data.json', 'r') as f:
+            status_data = json.load(f)
+    except:
+        status_data = {}
+
+    r = requests.head(CURRENT_URL)
+    new_data = {key: r.headers[key] for key in our_headers}
+    print(f"new etag {new_data['etag']}, old etag {status_data['etag']}")
+    return any(status_data.get(x) != new_data.get(x)
+               for x in our_headers), new_data
+
+
+def write_new_status_data(status_data):
+    with open('status_data.json', 'w') as f:
+        json.dump(status_data, f)
 
 
 def process_url(url):
@@ -72,18 +93,24 @@ if __name__ == "__main__":
     parser.add_argument('--nopost', action='store_true', default=False)
 
     args = parser.parse_args()
+    is_updated, status_data = check_rss_updated(CURRENT_URL)
+    if is_updated:
 
-    data_for_post = process_data(process_url(CURRENT_URL))
-    post_content = make_post_content(data_for_post)
+        data_for_post = process_data(process_url(CURRENT_URL))
+        post_content = make_post_content(data_for_post)
 
-    if not args.nopost:
-        m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
-        med_dict = m.media_post(data_for_post['graphic_data'],
-                                mime_type='image/png')
-        out = m.status_post(post_content, media_ids=med_dict)
-        print(
-            f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
-        )
+        if not args.nopost:
+            m = Mastodon(access_token=API_TOKEN,
+                         api_base_url='https://vmst.io')
+            med_dict = m.media_post(data_for_post['graphic_data'],
+                                    mime_type='image/png')
+            out = m.status_post(post_content, media_ids=med_dict)
+            print(
+                f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+            )
+            write_new_status_data(status_data=status_data)
+        else:
+            print(post_content)
+            print(f"Length: {len(post_content)}")
     else:
-        print(post_content)
-        print(f"Length: {len(post_content)}")
+        print("No updated feed data.")
