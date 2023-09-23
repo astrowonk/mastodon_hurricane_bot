@@ -1,0 +1,5 @@
+lxml
+html2text
+requests
+bs4
+mastodon
