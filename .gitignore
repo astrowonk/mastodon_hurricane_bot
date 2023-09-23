@@ -1,0 +1,5 @@
+config.py
+scratch.ipynb
+__pycache__/
+.ipynb_checkpoints/
+data.log
