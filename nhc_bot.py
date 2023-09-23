@@ -8,6 +8,7 @@ import re
 import argparse
 import json
 import datetime
+import sys
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
@@ -61,6 +62,8 @@ def check_summary_guid_change(data_for_post):
 
 def process_data(data_list):
     """extract the needed data for Mastodon"""
+    if len(data_list) < 6:
+        return
     out = {}
     out['full_advisory_link'] = data_list[2]['link']
     out['full_advisory_title'] = data_list[2]['title']
@@ -129,6 +132,8 @@ if __name__ == "__main__":
             print("update forced, ignoring status header data.")
 
         data_for_post = process_data(process_url(CURRENT_URL))
+        if not data_for_post:
+            sys.exit()
         post_content, non_headline = make_post_content(data_for_post)
 
         if check_summary_guid_change(data_for_post) or args.force_update:
