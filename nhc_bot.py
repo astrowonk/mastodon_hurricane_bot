@@ -101,14 +101,15 @@ def make_post_content(data_for_post):
         f"Advisory {advisory_number}: {data_for_post['full_advisory_link']}\n\n"
         f"#{rem.group(1)}")
 
-    return post_content
+    return post_content, non_headline
 
 
-def make_and_post(post_content):
+def make_and_post(post_content, data_for_post, alt_text):
 
     m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
     med_dict = m.media_post(data_for_post['graphic_data'],
-                            mime_type='image/png')
+                            mime_type='image/png',
+                            description=alt_text)
     out = m.status_post(post_content, media_ids=med_dict)
     print(
         f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
@@ -128,11 +129,16 @@ if __name__ == "__main__":
             print("update forced, ignoring status header data.")
 
         data_for_post = process_data(process_url(CURRENT_URL))
-        post_content = make_post_content(data_for_post)
+        post_content, non_headline = make_post_content(data_for_post)
 
-        if check_summary_guid_change(data_for_post):
+        if check_summary_guid_change(data_for_post) or args.force_update:
 
-            make_and_post(post_content)
+            make_and_post(post_content,
+                          data_for_post=data_for_post,
+                          alt_text=non_headline + '\n' +
+                          "See post for description and links to storm path.")
+            del post_content['graphic_data']
+            json_write(post_content, 'full_post_data.json')
 
         else:
             print(
