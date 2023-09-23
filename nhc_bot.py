@@ -11,10 +11,12 @@ CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
 
 def process_item(item):
+    """process one rss item into a dictionary"""
     return {x.tag: x.text for x in item}
 
 
 def process_url(url):
+    """use lxml to extract the items and process into dicts"""
     r = requests.get(url)
     mytree = etree.fromstring(r.content)
     theitems = mytree.getchildren()[0].findall('item')
@@ -22,6 +24,7 @@ def process_url(url):
 
 
 def process_data(data_list):
+    """extract the needed data for Mastodon"""
     out = {}
     out['full_advisory_link'] = data_list[2]['link']
     out['full_advisory_title'] = data_list[2]['title']
@@ -34,6 +37,7 @@ def process_data(data_list):
 
 
 def make_post_content(data_for_post):
+    """with the data dictionary, create the text for the post."""
     clean_title = re.sub(r"\(.+\)", '',
                          data_for_post['summary_title']).strip().replace(
                              "Tropical Storm", 'T.S.')
