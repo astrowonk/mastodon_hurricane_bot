@@ -91,10 +91,13 @@ def make_post_content(data_for_post):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--nopost', action='store_true', default=False)
+    parser.add_argument('--force-update', action='store_true', default=False)
 
     args = parser.parse_args()
     is_updated, status_data = check_rss_updated(CURRENT_URL)
-    if is_updated:
+    if is_updated or args.force_update:
+        if args.force_update:
+            print("update forced, ignoring status data.")
 
         data_for_post = process_data(process_url(CURRENT_URL))
         post_content = make_post_content(data_for_post)
