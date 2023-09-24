@@ -52,30 +52,33 @@ class Stormy:
 
         non_headline = ". ".join(sentences[2:])
 
-        pattern = r"(?:Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone) (.+) Public Advisory Number (.+)"
+        pattern = r"(Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone) (.+) Public Advisory Number (.+)"
         rem = re.match(pattern, self.data_for_post['full_advisory_title'])
-        advisory_number = rem.group(2)
+        advisory_number = rem.group(3)
+        self.storm_type = rem.group(1)
 
         ### F String
         post_content = (
-            f"{clean_title}\n\n"
+            # f"{clean_title}\n\n"
             f"{sentences[0].strip()}.\n\n"
             f"{sentences[1].strip()}.\n\n"
             f"{non_headline}\n\n"
             f"Track: {self.data_for_post['graphic_link']}\n"
             f"Advisory {advisory_number}: {self.data_for_post['full_advisory_link']}\n\n"
-            f"#{rem.group(1)}")
+            f"#{rem.group(2)}")
 
         self.post_content, self.non_headline = post_content, non_headline
+
+    def make_alt_text(self):
+        return '\n'.join(
+            [self.data_for_post['summary_title'], self.non_headline])
 
     def post_to_mastodon(self):
         """Use data to post to Mastodon instance"""
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
-        med_dict = m.media_post(
-            self.data_for_post['graphic_data'],
-            mime_type='image/png',
-            description=self.data_for_post['summary_title'] + '\n' +
-            self.non_headline)
+        med_dict = m.media_post(self.data_for_post['graphic_data'],
+                                mime_type='image/png',
+                                description=self.make_alt_text())
         out = m.status_post(self.post_content, media_ids=med_dict)
         print(
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
