@@ -106,7 +106,9 @@ if __name__ == "__main__":
                 if not args.no_post:
                     s.post_to_mastodon()
                     del data_for_post['graphic_data']
-                    json_write(data_for_post, 'full_post_data.json')
+                    storm_id = data_for_post['storm_id']
+                    json_write(data_for_post,
+                               f'{storm_id}_full_post_data.json')
                 else:
                     print(s.post_content)
                     print(len(s.post_content))

@@ -19,7 +19,7 @@ class Stormy:
     def set_storm_id(self):
         self.storm_id = re.search(r"\((.+)\)",
                                   self.data_for_post['summary_title']).group(1)
-        self.data_for_post['storm_id'] = self.storm_id
+        self.data_for_post['storm_id'] = self.storm_id.replace('/', '_')
 
     def process_data(self):
         """extract the needed data for Mastodon"""
