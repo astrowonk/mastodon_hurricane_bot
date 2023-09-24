@@ -78,19 +78,19 @@ def process_data(data_list):
 
 def make_post_content(data_for_post):
     """with the data dictionary, create the text for the post."""
-    clean_title = re.sub(r"\(.+\)", '',
-                         data_for_post['summary_title']).strip().replace(
-                             "Tropical Storm", 'T.S.')
-    pattern = r'\.\.\.(.*?)\.\.\.'
+    clean_title = re.sub(r"\(.+\)", '', data_for_post['summary_title']).strip()
+    pattern = r"(Tropical Depression |Hurricane |Tropical Storm|Post-Tropical Cyclone )"
+    clean_title = re.sub(pattern, '', clean_title)
 
     # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
+    pattern = r'\.\.\.(.*?)\.\.\.'
     cleaner_summary = re.sub(pattern, r'\1.', data_for_post['summary'])
 
     sentences = cleaner_summary.split(". ")
 
     non_headline = ". ".join(sentences[2:])
 
-    pattern = r"(?:Tropical Depression|Hurricane|Tropical Storm) (.+) Public Advisory Number (.+)"
+    pattern = r"(?:Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone) (.+) Public Advisory Number (.+)"
     rem = re.match(pattern, data_for_post['full_advisory_title'])
     advisory_number = rem.group(2)
 
@@ -100,7 +100,7 @@ def make_post_content(data_for_post):
         f"{sentences[0].strip()}.\n\n"
         f"{sentences[1].strip()}.\n\n"
         f"{non_headline}\n\n"
-        f"Graphics: {data_for_post['graphic_link']}\n"
+        f"Track: {data_for_post['graphic_link']}\n"
         f"Advisory {advisory_number}: {data_for_post['full_advisory_link']}\n\n"
         f"#{rem.group(1)}")
 
@@ -122,7 +122,7 @@ def make_and_post(post_content, data_for_post, alt_text):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--nopost', action='store_true', default=False)
+    parser.add_argument('--no-post', action='store_true', default=False)
     parser.add_argument('--force-update', action='store_true', default=False)
 
     args = parser.parse_args()
@@ -137,13 +137,17 @@ if __name__ == "__main__":
         post_content, non_headline = make_post_content(data_for_post)
 
         if check_summary_guid_change(data_for_post) or args.force_update:
-
-            make_and_post(post_content,
-                          data_for_post=data_for_post,
-                          alt_text=non_headline + '\n' +
-                          "See post for description and links to storm path.")
-            del data_for_post['graphic_data']
-            json_write(data_for_post, 'full_post_data.json')
+            if not args.no_post:
+                make_and_post(
+                    post_content,
+                    data_for_post=data_for_post,
+                    alt_text=non_headline + '\n' +
+                    "See post for description and links to storm path.")
+                del data_for_post['graphic_data']
+                json_write(data_for_post, 'full_post_data.json')
+            else:
+                print(post_content)
+                print(len(post_content))
 
         else:
             print(
