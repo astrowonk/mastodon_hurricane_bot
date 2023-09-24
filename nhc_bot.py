@@ -9,6 +9,7 @@ import argparse
 import json
 import datetime
 import sys
+from stormy import Stormy
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
@@ -42,69 +43,26 @@ def write_new_status_data(status_data):
     json_write(status_data, 'status_data.json')
 
 
-def process_url(url):
+def process_url(url=None, text=None):
     """use lxml to extract the items and process into dicts"""
-    r = requests.get(url)
-    mytree = etree.fromstring(r.content)
+    assert url or text, 'must have string or url'
+    if url:
+        r = requests.get(url)
+        text = r.content
+    mytree = etree.fromstring(text)
     theitems = mytree.getchildren()[0].findall('item')
     return [process_item(x) for x in theitems]
 
 
 def check_summary_guid_change(data_for_post):
+    storm_id = data_for_post['storm_id']
     try:
-        with open('full_post_data.json', 'r') as f:
+        with open(f'{storm_id}_full_post_data.json', 'r') as f:
             old_post_data = json.load(f)
     except:
         old_post_data = {}
 
     return old_post_data.get('summary_guid') != data_for_post['summary_guid']
-
-
-def process_data(data_list):
-    """extract the needed data for Mastodon"""
-    if len(data_list) < 6:
-        return
-    out = {}
-    out['full_advisory_link'] = data_list[2]['link']
-    out['full_advisory_title'] = data_list[2]['title']
-    out['summary_title'] = data_list[1]['title']
-    out['summary_guid'] = data_list[1]['guid']
-    out['summary'] = html2text(data_list[1]['description']).replace('\n', ' ')
-    soup = BeautifulSoup(data_list[6]['description'], 'html.parser')
-    out['graphic_data'] = requests.get(soup.find('img')['src']).content
-    out['graphic_link'] = soup.find('a')['href']
-    return out
-
-
-def make_post_content(data_for_post):
-    """with the data dictionary, create the text for the post."""
-    clean_title = re.sub(r"\(.+\)", '', data_for_post['summary_title']).strip()
-    pattern = r"(Tropical Depression |Hurricane |Tropical Storm|Post-Tropical Cyclone )"
-    clean_title = re.sub(pattern, '', clean_title)
-
-    # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
-    pattern = r'\.\.\.(.*?)\.\.\.'
-    cleaner_summary = re.sub(pattern, r'\1.', data_for_post['summary'])
-
-    sentences = cleaner_summary.split(". ")
-
-    non_headline = ". ".join(sentences[2:])
-
-    pattern = r"(?:Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone) (.+) Public Advisory Number (.+)"
-    rem = re.match(pattern, data_for_post['full_advisory_title'])
-    advisory_number = rem.group(2)
-
-    ### F String
-    post_content = (
-        f"{clean_title}\n\n"
-        f"{sentences[0].strip()}.\n\n"
-        f"{sentences[1].strip()}.\n\n"
-        f"{non_headline}\n\n"
-        f"Track: {data_for_post['graphic_link']}\n"
-        f"Advisory {advisory_number}: {data_for_post['full_advisory_link']}\n\n"
-        f"#{rem.group(1)}")
-
-    return post_content, non_headline
 
 
 def make_and_post(post_content, data_for_post, alt_text):
@@ -120,6 +78,13 @@ def make_and_post(post_content, data_for_post, alt_text):
     write_new_status_data(status_data=status_data)
 
 
+def make_list_of_storms(out):
+    return [
+        out[i:i + 6] for i, x in enumerate(out)
+        if x['title'].startswith('Summary')
+    ]
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--no-post', action='store_true', default=False)
@@ -131,30 +96,26 @@ if __name__ == "__main__":
         if args.force_update:
             print("update forced, ignoring status header data.")
 
-        data_for_post = process_data(process_url(CURRENT_URL))
-        if not data_for_post:
-            sys.exit()
-        post_content, non_headline = make_post_content(data_for_post)
+        out = process_url(CURRENT_URL)
+        storm_list = make_list_of_storms(out)
 
-        if check_summary_guid_change(data_for_post) or args.force_update:
-            if not args.no_post:
-                make_and_post(
-                    post_content,
-                    data_for_post=data_for_post,
-                    alt_text=non_headline + '\n' +
-                    "See post for description and links to storm path.")
-                del data_for_post['graphic_data']
-                json_write(data_for_post, 'full_post_data.json')
+        for raw_data in storm_list:
+            s = Stormy(raw_data)
+            data_for_post = s.data_for_post.copy()
+            if check_summary_guid_change(s.data_for_post) or args.force_update:
+                if not args.no_post:
+                    s.post_to_mastodon()
+                    del data_for_post['graphic_data']
+                    json_write(data_for_post, 'full_post_data.json')
+                else:
+                    print(s.post_content)
+                    print(len(s.post_content))
+
             else:
-                print(post_content)
-                print(len(post_content))
-
-        else:
-            print(
-                f"Guid for summary unchanged at {datetime.datetime.now().isoformat()}"
-            )
-            print("No posting to Mastodon")
-            write_new_status_data(status_data)
-            print(post_content)
+                print(
+                    f"Guid for summary unchanged at {datetime.datetime.now().isoformat()}"
+                )
+                print("No posting to Mastodon")
+        write_new_status_data(status_data)
     else:
         print("No updated feed data.")
