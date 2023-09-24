@@ -1,4 +1,4 @@
-# Tropical Updates to Mastodon
+# Tropical Weather (Atlantic) Updates to Mastodon
 
 This grabs the [NHC Atlantic RSS Feed](https://www.nhc.noaa.gov/aboutrss.shtml), specifically "Atlantic Basin Tropical Cyclones" from `https://www.nhc.noaa.gov/index-at.xml` and generates automated posts to a Mastodon bot with this data.
 
