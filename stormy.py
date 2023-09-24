@@ -71,9 +71,11 @@ class Stormy:
     def post_to_mastodon(self):
         """Use data to post to Mastodon instance"""
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
-        med_dict = m.media_post(self.data_for_post['graphic_data'],
-                                mime_type='image/png',
-                                description=self.non_headline)
+        med_dict = m.media_post(
+            self.data_for_post['graphic_data'],
+            mime_type='image/png',
+            description=self.data_for_post['summary_title'] + '\n' +
+            self.non_headline)
         out = m.status_post(self.post_content, media_ids=med_dict)
         print(
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
