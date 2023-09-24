@@ -90,9 +90,8 @@ def make_post_content(data_for_post):
 
     non_headline = ". ".join(sentences[2:])
 
-    rem = re.match(
-        r"|Tropical Storm|Tropical Depression|Hurricane| (\S+) Public Advisory Number (.+)",
-        data_for_post['full_advisory_title'])
+    pattern = r"(?:Tropical Depression|Hurricane|Tropical Storm) (.+) Public Advisory Number (.+)"
+    rem = re.match(pattern, data_for_post['full_advisory_title'])
     advisory_number = rem.group(2)
 
     ### F String
