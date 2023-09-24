@@ -2,9 +2,8 @@ import re
 from bs4 import BeautifulSoup
 import requests
 from html2text import html2text
-from config import API_BASE_URL, API_TOKEN
+from config import API_TOKEN
 from mastodon import Mastodon
-import json
 
 
 class Stormy:

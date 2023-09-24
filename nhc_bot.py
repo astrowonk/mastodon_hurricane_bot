@@ -1,14 +1,10 @@
 from lxml import etree
-from html2text import html2text
 import requests
-from bs4 import BeautifulSoup
 from mastodon import Mastodon
-from config import API_TOKEN, API_BASE_URL
-import re
+from config import API_TOKEN
 import argparse
 import json
 import datetime
-import sys
 from stormy import Stormy
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
