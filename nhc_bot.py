@@ -25,7 +25,9 @@ def check_rss_updated(CURRENT_URL):
 
     r = requests.head(CURRENT_URL)
     new_data = {key: r.headers[key] for key in our_headers}
-    print(f"new etag {new_data['etag']}, old etag {status_data['etag']}")
+    print(
+        f"{datetime.datetime.now().isoformat()} new etag {new_data['etag']}, old etag {status_data['etag']}"
+    )
     return any(status_data.get(x) != new_data.get(x)
                for x in our_headers), new_data
 
