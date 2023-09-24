@@ -90,8 +90,9 @@ def make_post_content(data_for_post):
 
     non_headline = ". ".join(sentences[2:])
 
-    rem = re.match(r"Tropical Storm (\S+) Public Advisory Number (.+)",
-                   data_for_post['full_advisory_title'])
+    rem = re.match(
+        r"|Tropical Storm|Tropical Depression|Hurricane| (\S+) Public Advisory Number (.+)",
+        data_for_post['full_advisory_title'])
     advisory_number = rem.group(2)
 
     ### F String
@@ -142,8 +143,8 @@ if __name__ == "__main__":
                           data_for_post=data_for_post,
                           alt_text=non_headline + '\n' +
                           "See post for description and links to storm path.")
-            del post_content['graphic_data']
-            json_write(post_content, 'full_post_data.json')
+            del data_for_post['graphic_data']
+            json_write(data_for_post, 'full_post_data.json')
 
         else:
             print(
