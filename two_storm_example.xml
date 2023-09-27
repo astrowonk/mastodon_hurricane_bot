@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:georss="http://www.georss.org/georss"
+ xmlns:gml="http://www.opengis.net/gml"
+ xmlns:nhc="https://www.nhc.noaa.gov">
+<channel>
+<pubDate>Sun, 24 Sep 2023 03:29:20 GMT</pubDate>
+<title>NHC Atlantic</title>
+<description>Active tropical cyclones in the Atlantic, Caribbean, and the Gulf of Mexico</description>
+<link>https://www.nhc.noaa.gov/</link>
+<copyright>none</copyright>
+<managingEditor>nhcwebmaster@noaa.gov (NHC Webmaster)</managingEditor>
+<language>en-us</language>
+<webMaster>nhcwebmaster@noaa.gov (NHC Webmaster)</webMaster>
+<image>
+<url>https://www.nhc.noaa.gov/gifs/xml_logo_nhc.gif</url>
+<link>https://www.nhc.noaa.gov/</link>
+<title>NHC Atlantic</title>
+<description>NOAA logo</description>
+<width>95</width>
+<height>45</height>
+</image>
+<item>
+<title>Atlantic Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br/>
+000<br/>
+ABNT20 KNHC 232346<br/>
+TWOAT <br/>
+<br/>
+Tropical Weather Outlook<br/>
+NWS National Hurricane Center Miami FL<br/>
+800 PM EDT Sat Sep 23 2023<br/>
+<br/>
+For the North Atlantic...Caribbean Sea and the Gulf of Mexico:<br/>
+<br/>
+Active Systems:<br/>
+The National Hurricane Center is issuing advisories on recently <br/>
+downgraded Tropical Depression Ophelia, located inland over <br/>
+southeastern Virginia, and on recently upgraded Tropical Storm <br/>
+Philippe, located over the Central Tropical Atlantic. <br/>
+<br/>
+Eastern Tropical Atlantic:<br/>
+A tropical wave located between the west coast of Africa and the <br/>
+Cabo Verde Islands is producing a broad area of disorganized showers <br/>
+and thunderstorms. Environmental conditions are expected to be <br/>
+conducive for some gradual development of this system during the <br/>
+middle to latter portions of next week while it moves westward <br/>
+across the eastern and central tropical Atlantic. <br/>
+* Formation chance through 48 hours...low...near 0 percent.<br/>
+* Formation chance through 7 days...low...20 percent.<br/>
+<br/>
+&&<br/>
+Public Advisories on Philippe are issued under WMO header WTNT32 <br/>
+KNHC and under AWIPS header MIATCPAT2.<br/>
+Forecast/Advisories on Philippe are issued under WMO header WTNT22 <br/>
+KNHC and under AWIPS header MIATCMAT2.<br/>
+<br/>
+$$<br/>
+Forecaster Bucci<br/>
+]]>
+</description>
+<pubDate>Sat, 23 Sep 2023 23:46:35 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=atlc</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;202309232346</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+ <title>Summary for Post-Tropical Cyclone Ophelia (AT1/AL162023)</title>
+ <guid isPermaLink="false">summary-al162023-202309240240</guid>
+ <pubDate>Sun, 24 Sep 2023 02:40:39 GMT</pubDate>
+ <author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+ <link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT1+shtml/240240.shtml</link>
+ <description>
+  ...OPHELIA BECOMES A POST-TROPICAL LOW BUT CONTINUES TO POSE A RISK OF COASTAL AND FLASH FLOODING ACROSS THE U.S. MID-ATLANTIC... ...FUTURE ADVISORIES WILL BE ISSUED BY THE WEATHER PREDICTION CENTER...
+ As of 11:00 PM EDT Sat Sep 23
+ the center of Ophelia was located near 37.1, -77.6
+ with movement N at 8 mph.
+ The minimum central pressure was 1003 mb
+ with maximum sustained winds of about 35 mph.
+ </description>
+ <nhc:Cyclone>
+  <nhc:center>37.1, -77.6</nhc:center>
+  <nhc:type>POST-TROPICAL CYCLONE</nhc:type>
+  <nhc:name>Ophelia</nhc:name>
+  <nhc:wallet>AT1</nhc:wallet>
+  <nhc:atcf>AL162023</nhc:atcf>
+  <nhc:datetime>11:00 PM EDT Sat Sep 23</nhc:datetime>
+  <nhc:movement>N at 8 mph</nhc:movement>
+  <nhc:pressure>1003 mb</nhc:pressure>
+  <nhc:wind>35 mph</nhc:wind>
+  <nhc:headline> ...OPHELIA BECOMES A POST-TROPICAL LOW BUT CONTINUES TO POSE A RISK OF COASTAL AND FLASH FLOODING ACROSS THE U.S. MID-ATLANTIC... ...FUTURE ADVISORIES WILL BE ISSUED BY THE WEATHER PREDICTION CENTER...</nhc:headline>
+ </nhc:Cyclone>
+</item>
+<item>
+<title>Post-Tropical Cyclone Ophelia Public Advisory Number 11</title>
+<description>Issued at 1100 PM EDT Sat Sep 23 2023  <![CDATA[<pre>
+
+000
+WTNT31 KNHC 240240
+TCPAT1
+ 
+BULLETIN
+Post-Tropical Cyclone Ophelia Advisory Number  11
+NWS National Hurricane Center Miami FL       AL162023
+1100 PM EDT Sat Sep 23 2023
+ 
+...OPHELIA BECOMES A POST-TROPICAL LOW BUT CONTINUES TO POSE A
+RISK OF COASTAL AND FLASH FLOODING ACROSS THE U.S. MID-ATLANTIC...
+...FUTURE ADVISORIES WILL BE ISSUED BY THE WEATHER PREDICTION
+CENTER...
+ 
+ 
+SUMMARY OF 1100 PM EDT...0300 UTC...INFORMATION
+-----------------------------------------------
+LOCATION...37.1N 77.6W
+ABOUT 30 MI...50 KM SSW OF RICHMOND VIRGINIA
+ABOUT 85 MI...135 KM SE OF CHARLOTTESVILLE VIRGINIA
+MAXIMUM SUSTAINED WINDS...35 MPH...55 KM/H
+PRESENT MOVEMENT...N OR 360 DEGREES AT 8 MPH...13 KM/H
+MINIMUM CENTRAL PRESSURE...1003 MB...29.62 INCHES
+ 
+ 
+WATCHES AND WARNINGS
+--------------------
+CHANGES WITH THIS ADVISORY:
+ 
+None.
+ 
+SUMMARY OF WATCHES AND WARNINGS IN EFFECT:
+ 
+Coastal flood warnings, as well as flood watches and flash flood
+warnings, remain in effect for portions of the U.S. Mid-Atlantic.
+ 
+ 
+DISCUSSION AND OUTLOOK
+----------------------
+At 1100 PM EDT (0300 UTC), the center of Post-Tropical Cyclone
+Ophelia was located near latitude 37.1 North, longitude 77.6 West.
+Ophelia is moving toward the north near 8 mph (13 km/h).  The 
+center of Ophelia is expected to turn toward the north-northeast 
+and northeast, moving across eastern Virginia and the Delmarva 
+Peninsula through Sunday.
+ 
+Maximum sustained winds are near 35 mph (55 km/h) with higher gusts.
+Little change in strength is forecast during the next day or so.  
+The post-tropical low is expected to become absorbed by a frontal 
+boundary Sunday night or early Monday.
+ 
+The estimated minimum central pressure is 1003 mb (29.62 inches).
+ 
+ 
+HAZARDS AFFECTING LAND
+----------------------
+Key messages for Ophelia can be found in the Tropical Cyclone
+Discussion under AWIPS header MIATCDAT1, WMO header WTNT41 KNHC,
+and on the web at hurricanes.gov/text/MIATCDAT1.shtml
+ 
+STORM SURGE:  Water levels remain elevated within portions of
+Chesapeake Bay and its tidal rivers but should gradually recede
+overnight and into Sunday.  For information specific to your area,
+please see products issued by your local National Weather Service
+forecast office.
+ 
+RAINFALL:  Ophelia is expected to produce the following additional
+rainfall through Sunday night:
+ 
+Portions of the Mid-Atlantic from Virginia through New Jersey...1
+to 3 inches with isolated higher totals up to 5 inches.
+ 
+Across southeastern New York through southern New England...1 to 3
+inches.
+ 
+This rainfall may produce localized flash, urban, and small stream
+flooding impacts, particularly across the Mid-Atlantic region from
+Virginia to New Jersey. Isolated river flooding is possible in areas
+of heavier rainfall.
+ 
+SURF:  Swells generated by Ophelia will continue to affect much of
+the east coast of the United States through the weekend.  These
+swells are likely to cause life-threatening surf and rip current
+conditions.  Please consult products from your local weather office.
+ 
+ 
+NEXT ADVISORY
+-------------
+This is the last public advisory issued by the National Hurricane
+Center on Ophelia.  Future information on this system can be 
+found in Public Advisories issued by the Weather Prediction Center 
+beginning at 500 AM EDT, under AWIPS header TCPAT1, WMO header 
+WTNT31 KWNH, and on the web at www.hurricanes.gov.
+ 
+$$
+Forecaster Berg
+ 
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:40:39 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT1+shtml/240240.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCPAT1+shtml/240240.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Post-Tropical Cyclone Ophelia Forecast Advisory Number 11</title>
+<description>Issued at 0300 UTC SUN SEP 24 2023  <![CDATA[<pre>
+
+000
+WTNT21 KNHC 240240
+TCMAT1
+ 
+POST-TROPICAL CYCLONE OPHELIA FORECAST/ADVISORY NUMBER  11
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL162023
+0300 UTC SUN SEP 24 2023
+ 
+NOTICE... LAND-BASED TROPICAL CYCLONE WATCHES AND WARNINGS ARE NO
+LONGER INCLUDED IN THE TROPICAL CYCLONE FORECAST/ADVISORY...(TCM).
+CURRENT LAND-BASED COASTAL WATCHES AND WARNINGS CAN BE FOUND IN THE
+MOST RECENTLY ISSUED TROPICAL CYCLONE PUBLIC ADVISORY...(TCP).
+ 
+POST-TROPICAL CYCLONE CENTER LOCATED NEAR 37.1N  77.6W AT 24/0300Z
+POSITION ACCURATE WITHIN  30 NM
+ 
+PRESENT MOVEMENT TOWARD THE NORTH OR 360 DEGREES AT   7 KT
+ 
+ESTIMATED MINIMUM CENTRAL PRESSURE 1003 MB
+MAX SUSTAINED WINDS  30 KT WITH GUSTS TO  40 KT.
+12 FT SEAS..360NE 300SE   0SW   0NW.
+WINDS AND SEAS VARY GREATLY IN EACH QUADRANT.  RADII IN NAUTICAL
+MILES ARE THE LARGEST RADII EXPECTED ANYWHERE IN THAT QUADRANT.
+ 
+REPEAT...CENTER LOCATED NEAR 37.1N  77.6W AT 24/0300Z
+AT 24/0000Z CENTER WAS LOCATED NEAR 36.8N  77.6W
+ 
+FORECAST VALID 24/1200Z 38.2N  77.1W...POST-TROP/EXTRATROP
+MAX WIND  30 KT...GUSTS  40 KT.
+ 
+FORECAST VALID 25/0000Z 39.1N  75.7W...POST-TROP/EXTRATROP
+MAX WIND  30 KT...GUSTS  40 KT.
+ 
+FORECAST VALID 25/1200Z...DISSIPATED
+ 
+REQUEST FOR 3 HOURLY SHIP REPORTS WITHIN 300 MILES OF 37.1N  77.6W
+ 
+THIS IS THE LAST FORECAST/ADVISORY ISSUED BY THE NATIONAL HURRICANE 
+CENTER ON OPHELIA.  FUTURE INFORMATION ON OPHELIA CAN BE FOUND IN 
+FORECAST/ADVISORIES ISSUED BY THE WEATHER PREDICTION CENTER 
+BEGINNING AT 0900 UTC, UNDER AWIPS HEADER TCMAT1, WMO HEADER WTNT21 
+KWNH, AND ON THE WEB AT WWW.HURRICANES.GOV.
+ 
+$$
+FORECASTER BERG
+ 
+ 
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:40:39 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCMAT1+shtml/240240.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCMAT1+shtml/240240.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Post-Tropical Cyclone Ophelia Forecast Discussion Number 11</title>
+<description>Issued at 1100 PM EDT Sat Sep 23 2023  <![CDATA[<pre>
+
+233 
+WTNT41 KNHC 240241
+TCDAT1
+ 
+Post-Tropical Cyclone Ophelia Discussion Number  11
+NWS National Hurricane Center Miami FL       AL162023
+1100 PM EDT Sat Sep 23 2023
+ 
+Ophelia appears to have lost its tropical characteristics.  Surface 
+observations show a well-defined wind shift associated with a 
+frontal boundary extending across eastern Virginia, and the heaviest 
+precipitation is now well north of the center, oriented along and 
+to the north of the front.  In addition, phase space diagrams based 
+on global model fields indicate that the system has entered the 
+asymmetric cold-core regime.  Therefore, Ophelia is being declared a 
+post-tropical cyclone.  Surface observations indicate that maximum 
+winds have decreased to 30 kt, mainly over the ocean well east of 
+the center.
+
+With the last bit of convection having been sheared off to the 
+north, the center appears to have slowed down since the last 
+advisory, and the current estimate is northward at 360/7 kt.  The 
+circulation is expected to turn northeastward on Sunday, but also 
+become more diffuse while it moves across eastern Virginia and the 
+Delmarva Peninsula.  The NHC forecast now shows the low becoming 
+absorbed by the nearby frontal boundary by 36 hours.  Maximum winds 
+are likely to remain around 30 kt until dissipation, mainly in 
+a band to the north of the front off the coast of Long Island.
+
+This is the last tropical cyclone discussion issued by the National 
+Hurricane Center on Ophelia.  Future information on Ophelia can be 
+found in discussions issued by the Weather Prediction Center 
+beginning at 500 AM EDT, under AWIPS header TCDAT1, WMO header 
+WTNT41 KWNH, and on the web at www.hurricanes.gov.
+
+ 
+Key Messages:
+ 
+1. Coastal flooding will continue along portions of Chesapeake Bay 
+and its tidal rivers through Sunday.  Refer to statements from your 
+local National Weather Service Forecast Office for additional 
+information.
+ 
+2. Heavy rainfall from Ophelia may produce localized flash and 
+urban flooding impacts across portions of the Mid-Atlantic states 
+from Virginia to New Jersey through Sunday.
+ 
+3. Swells generated by Ophelia will affect much of the U.S. east 
+coast through the weekend, likely causing life-threatening surf and 
+rip currents.
+ 
+ 
+FORECAST POSITIONS AND MAX WINDS
+ 
+INIT  24/0300Z 37.1N  77.6W   30 KT  35 MPH...POST-TROP/EXTRATROP
+ 12H  24/1200Z 38.2N  77.1W   30 KT  35 MPH...POST-TROP/EXTRATROP
+ 24H  25/0000Z 39.1N  75.7W   30 KT  35 MPH...POST-TROP/EXTRATROP
+ 36H  25/1200Z...DISSIPATED
+ 
+$$
+Forecaster Berg
+ 
+
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:41:08 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCDAT1+shtml/240241.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCDAT1+shtml/240241.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Post-Tropical Cyclone Ophelia Wind Speed Probabilities Number 11</title>
+<description>Issued at 0300 UTC SUN SEP 24 2023                                              <![CDATA[<pre>
+
+000
+FONT11 KNHC 240241
+PWSAT1
+                                                                    
+POST-TROPICAL CYCLONE OPHELIA WIND SPEED PROBABILITIES NUMBER  11   
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL162023               
+0300 UTC SUN SEP 24 2023                                            
+                                                                    
+AT 0300Z THE CENTER OF POST-TROPICAL CYCLONE OPHELIA WAS LOCATED    
+NEAR LATITUDE 37.1 NORTH...LONGITUDE 77.6 WEST WITH MAXIMUM         
+SUSTAINED WINDS NEAR 30 KTS...35 MPH...55 KM/H.                     
+                                                                    
+Z INDICATES COORDINATED UNIVERSAL TIME (GREENWICH)                  
+   ATLANTIC STANDARD TIME (AST)...SUBTRACT 4 HOURS FROM Z TIME      
+   EASTERN  DAYLIGHT TIME (EDT)...SUBTRACT 4 HOURS FROM Z TIME      
+   CENTRAL  DAYLIGHT TIME (CDT)...SUBTRACT 5 HOURS FROM Z TIME      
+                                                                    
+WIND SPEED PROBABILITY TABLE FOR SPECIFIC LOCATIONS                 
+                                                                    
+CHANCES OF SUSTAINED (1-MINUTE AVERAGE) WIND SPEEDS OF AT LEAST     
+   ...34 KT (39 MPH... 63 KM/H)...                                  
+   ...50 KT (58 MPH... 93 KM/H)...                                  
+   ...64 KT (74 MPH...119 KM/H)...                                  
+FOR LOCATIONS AND TIME PERIODS DURING THE NEXT 5 DAYS               
+                                                                    
+PROBABILITIES FOR LOCATIONS ARE GIVEN AS OP(CP) WHERE               
+    OP  IS THE PROBABILITY OF THE EVENT BEGINNING DURING            
+        AN INDIVIDUAL TIME PERIOD (ONSET PROBABILITY)               
+   (CP) IS THE PROBABILITY OF THE EVENT OCCURRING BETWEEN           
+        00Z SUN AND THE FORECAST HOUR (CUMULATIVE PROBABILITY)      
+                                                                    
+PROBABILITIES ARE GIVEN IN PERCENT                                  
+X INDICATES PROBABILITIES LESS THAN 1 PERCENT                       
+PROBABILITIES FOR 34 KT AND 50 KT ARE SHOWN AT A GIVEN LOCATION WHEN
+THE 5-DAY CUMULATIVE PROBABILITY IS AT LEAST 3 PERCENT.             
+PROBABILITIES FOR 34...50...64 KT SHOWN WHEN THE 5-DAY              
+64-KT CUMULATIVE PROBABILITY IS AT LEAST 1 PERCENT.                 
+                                                                    
+                                                                    
+  - - - - WIND SPEED PROBABILITIES FOR SELECTED LOCATIONS - - - -   
+                                                                    
+               FROM    FROM    FROM    FROM    FROM    FROM    FROM 
+  TIME       00Z SUN 12Z SUN 00Z MON 12Z MON 00Z TUE 00Z WED 00Z THU
+PERIODS         TO      TO      TO      TO      TO      TO      TO  
+             12Z SUN 00Z MON 12Z MON 00Z TUE 00Z WED 00Z THU 00Z FRI
+                                                                    
+FORECAST HOUR    (12)   (24)    (36)    (48)    (72)    (96)   (120)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+LOCATION       KT                                                   
+                                                                    
+NYC JFK AIRPRT 34  X   3( 3)   X( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+ATLANTIC CITY  34  X   3( 3)   X( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+BALTIMORE MD   34  X   3( 3)   X( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+DOVER DE       34  X   4( 4)   X( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+ANNAPOLIS MD   34  1   3( 4)   X( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+WASHINGTON DC  34  1   2( 3)   X( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+CAPE HENLOPEN  34  2  20(22)   X(22)   X(22)   X(22)   X(22)   X(22)
+ 
+OCEAN CITY MD  34  2  12(14)   X(14)   X(14)   X(14)   X(14)   X(14)
+ 
+PAX RIVER NAS  34  1   3( 4)   X( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+WALLOPS CDA    34  4   8(12)   X(12)   X(12)   X(12)   X(12)   X(12)
+ 
+$$                                                                  
+FORECASTER BERG                                                     
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:41:08 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT1+shtml/240241.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT1+shtml/240241.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Post-Tropical Cyclone Ophelia Graphics</title>
+<description>
+<![CDATA[
+<a href="https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/025343.shtml?cone">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT16/AL162023_5day_cone_with_line_and_wind_sm2.png"
+alt="Post-Tropical Cyclone Ophelia 5-Day Uncertainty Track Image"
+width="500" height="400" /></a><br/>
+5-Day Uncertainty Track last updated Sun, 24 Sep 2023 02:53:43 GMT
+<br /><br /><a href="https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/025343.shtml?tswind120">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT16/AL162023_wind_probs_34_F120_sm2.png"
+alt="Post-Tropical Cyclone Ophelia 34-Knot Wind Speed Probabilities"
+width="500" height="400" /> </a><br/>
+Wind Speed Probabilities last updated Sun, 24 Sep 2023 03:22:54 GMT
+]]>
+</description>
+<pubDate>Sun, 24 Sep 2023 02:53:43 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/025343.shtml?cone</link>
+<guid>https://www.nhc.noaa.gov/refresh/graphics_at1+shtml/025343.shtml?cone</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Local Statement for Raleigh, NC</title>
+<description>Issued at  541 PM EDT Sat Sep 23 2023</description>
+<pubDate>Sat, 23 Sep 2023 21:41:35 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/WTUS82-KRAH.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/WTUS82-KRAH.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+ <title>Summary for Tropical Storm Philippe (AT2/AL172023)</title>
+ <guid isPermaLink="false">summary-al172023-202309240247</guid>
+ <pubDate>Sun, 24 Sep 2023 02:47:16 GMT</pubDate>
+ <author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+ <link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/240247.shtml</link>
+ <description>
+  ...PHILIPPE MOVING WESTWARD...
+ As of 11:00 PM AST Sat Sep 23
+ the center of Philippe was located near 15.4, -40.9
+ with movement W at 14 mph.
+ The minimum central pressure was 1005 mb
+ with maximum sustained winds of about 40 mph.
+ </description>
+ <nhc:Cyclone>
+  <nhc:center>15.4, -40.9</nhc:center>
+  <nhc:type>Tropical Storm</nhc:type>
+  <nhc:name>Philippe</nhc:name>
+  <nhc:wallet>AT2</nhc:wallet>
+  <nhc:atcf>AL172023</nhc:atcf>
+  <nhc:datetime>11:00 PM AST Sat Sep 23</nhc:datetime>
+  <nhc:movement>W at 14 mph</nhc:movement>
+  <nhc:pressure>1005 mb</nhc:pressure>
+  <nhc:wind>40 mph</nhc:wind>
+  <nhc:headline> ...PHILIPPE MOVING WESTWARD...</nhc:headline>
+ </nhc:Cyclone>
+</item>
+<item>
+<title>Tropical Storm Philippe Public Advisory Number 3</title>
+<description>Issued at 1100 PM AST Sat Sep 23 2023  <![CDATA[<pre>
+
+490 
+WTNT32 KNHC 240247
+TCPAT2
+ 
+BULLETIN
+Tropical Storm Philippe Advisory Number   3
+NWS National Hurricane Center Miami FL       AL172023
+1100 PM AST Sat Sep 23 2023
+ 
+...PHILIPPE MOVING WESTWARD...
+ 
+ 
+SUMMARY OF 1100 PM AST...0300 UTC...INFORMATION
+-----------------------------------------------
+LOCATION...15.4N 40.9W
+ABOUT 1125 MI...1810 KM W OF THE CABO VERDE ISLANDS
+MAXIMUM SUSTAINED WINDS...40 MPH...65 KM/H
+PRESENT MOVEMENT...W OR 265 DEGREES AT 14 MPH...22 KM/H
+MINIMUM CENTRAL PRESSURE...1005 MB...29.68 INCHES
+ 
+ 
+WATCHES AND WARNINGS
+--------------------
+There are no coastal watches or warnings in effect.
+ 
+ 
+DISCUSSION AND OUTLOOK
+----------------------
+At 1100 PM AST (0300 UTC), the center of Tropical Storm Philippe was
+located near latitude 15.4 North, longitude 40.9 West. Philippe is
+moving toward the west near 14 mph (22 km/h). A continued westward
+motion at a slightly slower forward speed is expected into early
+next week.
+ 
+Maximum sustained winds are near 40 mph (65 km/h) with higher gusts.
+Gradual strengthening is expected during the next few days.
+ 
+Tropical-storm-force winds extend outward up to 115 miles (185 km)
+from the center.
+ 
+The estimated minimum central pressure is 1005 mb (29.68 inches).
+ 
+ 
+HAZARDS AFFECTING LAND
+----------------------
+None
+ 
+ 
+NEXT ADVISORY
+-------------
+Next complete advisory at 500 AM AST.
+ 
+$$
+Forecaster Bucci
+ 
+
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:47:16 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/240247.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/240247.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Storm Philippe Forecast Advisory Number 3</title>
+<description>Issued at 0300 UTC SUN SEP 24 2023  <![CDATA[<pre>
+
+497 
+WTNT22 KNHC 240246
+TCMAT2
+ 
+TROPICAL STORM PHILIPPE FORECAST/ADVISORY NUMBER   3
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL172023
+0300 UTC SUN SEP 24 2023
+ 
+NOTICE... LAND-BASED TROPICAL CYCLONE WATCHES AND WARNINGS ARE NO
+LONGER INCLUDED IN THE TROPICAL CYCLONE FORECAST/ADVISORY...(TCM).
+CURRENT LAND-BASED COASTAL WATCHES AND WARNINGS CAN BE FOUND IN THE
+MOST RECENTLY ISSUED TROPICAL CYCLONE PUBLIC ADVISORY...(TCP).
+ 
+TROPICAL STORM CENTER LOCATED NEAR 15.4N  40.9W AT 24/0300Z
+POSITION ACCURATE WITHIN  30 NM
+ 
+PRESENT MOVEMENT TOWARD THE WEST OR 265 DEGREES AT  12 KT
+ 
+ESTIMATED MINIMUM CENTRAL PRESSURE 1005 MB
+MAX SUSTAINED WINDS  35 KT WITH GUSTS TO  45 KT.
+34 KT.......100NE   0SE   0SW   0NW.
+12 FT SEAS..180NE   0SE   0SW 180NW.
+WINDS AND SEAS VARY GREATLY IN EACH QUADRANT.  RADII IN NAUTICAL
+MILES ARE THE LARGEST RADII EXPECTED ANYWHERE IN THAT QUADRANT.
+ 
+REPEAT...CENTER LOCATED NEAR 15.4N  40.9W AT 24/0300Z
+AT 24/0000Z CENTER WAS LOCATED NEAR 15.3N  40.3W
+ 
+FORECAST VALID 24/1200Z 15.5N  42.6W
+MAX WIND  40 KT...GUSTS  50 KT.
+34 KT...100NE   0SE   0SW  60NW.
+ 
+FORECAST VALID 25/0000Z 15.9N  44.8W
+MAX WIND  40 KT...GUSTS  50 KT.
+34 KT...100NE   0SE   0SW  60NW.
+ 
+FORECAST VALID 25/1200Z 16.3N  47.1W
+MAX WIND  40 KT...GUSTS  50 KT.
+34 KT...100NE   0SE   0SW  70NW.
+ 
+FORECAST VALID 26/0000Z 16.7N  49.1W
+MAX WIND  45 KT...GUSTS  55 KT.
+34 KT...100NE  50SE   0SW  70NW.
+ 
+FORECAST VALID 26/1200Z 17.4N  50.7W
+MAX WIND  45 KT...GUSTS  55 KT.
+34 KT...100NE  60SE   0SW  70NW.
+ 
+FORECAST VALID 27/0000Z 18.3N  52.0W
+MAX WIND  50 KT...GUSTS  60 KT.
+50 KT... 40NE   0SE   0SW   0NW.
+34 KT...100NE  70SE   0SW  60NW.
+ 
+EXTENDED OUTLOOK. NOTE...ERRORS FOR TRACK HAVE AVERAGED NEAR 125 NM
+ON DAY 4 AND 175 NM ON DAY 5...AND FOR INTENSITY NEAR 15 KT EACH DAY
+ 
+OUTLOOK VALID 28/0000Z 21.2N  53.9W
+MAX WIND  55 KT...GUSTS  65 KT.
+ 
+OUTLOOK VALID 29/0000Z 23.5N  54.5W
+MAX WIND  60 KT...GUSTS  75 KT.
+ 
+REQUEST FOR 3 HOURLY SHIP REPORTS WITHIN 300 MILES OF 15.4N  40.9W
+ 
+NEXT ADVISORY AT 24/0900Z
+ 
+$$
+FORECASTER BUCCI
+ 
+ 
+
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:46:42 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCMAT2+shtml/240246.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCMAT2+shtml/240246.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Storm Philippe Forecast Discussion Number 3</title>
+<description>Issued at 1100 PM AST Sat Sep 23 2023  <![CDATA[<pre>
+
+918 
+WTNT42 KNHC 240247
+TCDAT2
+ 
+Tropical Storm Philippe Discussion Number   3
+NWS National Hurricane Center Miami FL       AL172023
+1100 PM AST Sat Sep 23 2023
+ 
+Philippe is still a disorganized tropical storm.  Geostationary 
+satellite imagery shows that deep convection is displaced to the 
+northeast of the low-level center.  Recent satellite-derived wind 
+data revealed that the surface circulation is still elongated and 
+winds in the southwest quadrant are quite weak.  The initial 
+intensity is held at 35 kt for this advisory, based on the ASCAT 
+observations.
+ 
+The tropical storm is moving westward at an estimate 12 kt.  This 
+general motion should continue for the next two days, as Philippe 
+moves along the south side of a mid-level ridge.  By 60 h, the storm 
+should gradually turn to the west-northwest and northwest as it 
+reaches a weakness in the ridge.  The latest track forecast is 
+similar to the previous advisory through day 3, and has shifted to 
+the west and slightly slower at days 4 and 5.
+
+Model guidance suggests Philippe should gradually organize and thus 
+slowly strengthen in the next few days.  This is possibly due to 
+some mid-level vertical wind shear and upstream dry air.  Beyond day 
+3, Philippe is expected to approach a mid- to upper-level trough, 
+that should increase deep-layer vertical wind shear, but could also 
+increase upper-level difluence.  The intensity guidance generally 
+favors some slight intensification during this period.  The latest 
+NHC forecast is similar to the previous advisory, and lies slightly 
+above the consensus aid, IVCN.  
+ 
+FORECAST POSITIONS AND MAX WINDS
+ 
+INIT  24/0300Z 15.4N  40.9W   35 KT  40 MPH
+ 12H  24/1200Z 15.5N  42.6W   40 KT  45 MPH
+ 24H  25/0000Z 15.9N  44.8W   40 KT  45 MPH
+ 36H  25/1200Z 16.3N  47.1W   40 KT  45 MPH
+ 48H  26/0000Z 16.7N  49.1W   45 KT  50 MPH
+ 60H  26/1200Z 17.4N  50.7W   45 KT  50 MPH
+ 72H  27/0000Z 18.3N  52.0W   50 KT  60 MPH
+ 96H  28/0000Z 21.2N  53.9W   55 KT  65 MPH
+120H  29/0000Z 23.5N  54.5W   60 KT  70 MPH
+ 
+$$
+Forecaster Bucci
+ 
+
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:47:49 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCDAT2+shtml/240247.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCDAT2+shtml/240247.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Storm Philippe Wind Speed Probabilities Number 3</title>
+<description>Issued at 0300 UTC SUN SEP 24 2023                                              <![CDATA[<pre>
+
+491 
+FONT12 KNHC 240247
+PWSAT2
+                                                                    
+TROPICAL STORM PHILIPPE WIND SPEED PROBABILITIES NUMBER   3         
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL172023               
+0300 UTC SUN SEP 24 2023                                            
+                                                                    
+AT 0300Z THE CENTER OF TROPICAL STORM PHILIPPE WAS LOCATED NEAR     
+LATITUDE 15.4 NORTH...LONGITUDE 40.9 WEST WITH MAXIMUM SUSTAINED    
+WINDS NEAR 35 KTS...40 MPH...65 KM/H.                               
+                                                                    
+Z INDICATES COORDINATED UNIVERSAL TIME (GREENWICH)                  
+   ATLANTIC STANDARD TIME (AST)...SUBTRACT 4 HOURS FROM Z TIME      
+   EASTERN  DAYLIGHT TIME (EDT)...SUBTRACT 4 HOURS FROM Z TIME      
+   CENTRAL  DAYLIGHT TIME (CDT)...SUBTRACT 5 HOURS FROM Z TIME      
+                                                                    
+WIND SPEED PROBABILITY TABLE FOR SPECIFIC LOCATIONS                 
+                                                                    
+CHANCES OF SUSTAINED (1-MINUTE AVERAGE) WIND SPEEDS OF AT LEAST     
+   ...34 KT (39 MPH... 63 KM/H)...                                  
+   ...50 KT (58 MPH... 93 KM/H)...                                  
+   ...64 KT (74 MPH...119 KM/H)...                                  
+FOR LOCATIONS AND TIME PERIODS DURING THE NEXT 5 DAYS               
+                                                                    
+PROBABILITIES FOR LOCATIONS ARE GIVEN AS OP(CP) WHERE               
+    OP  IS THE PROBABILITY OF THE EVENT BEGINNING DURING            
+        AN INDIVIDUAL TIME PERIOD (ONSET PROBABILITY)               
+   (CP) IS THE PROBABILITY OF THE EVENT OCCURRING BETWEEN           
+        00Z SUN AND THE FORECAST HOUR (CUMULATIVE PROBABILITY)      
+                                                                    
+PROBABILITIES ARE GIVEN IN PERCENT                                  
+X INDICATES PROBABILITIES LESS THAN 1 PERCENT                       
+PROBABILITIES FOR 34 KT AND 50 KT ARE SHOWN AT A GIVEN LOCATION WHEN
+THE 5-DAY CUMULATIVE PROBABILITY IS AT LEAST 3 PERCENT.             
+PROBABILITIES FOR 34...50...64 KT SHOWN WHEN THE 5-DAY              
+64-KT CUMULATIVE PROBABILITY IS AT LEAST 1 PERCENT.                 
+                                                                    
+                                                                    
+  - - - - WIND SPEED PROBABILITIES FOR SELECTED LOCATIONS - - - -   
+                                                                    
+               FROM    FROM    FROM    FROM    FROM    FROM    FROM 
+  TIME       00Z SUN 12Z SUN 00Z MON 12Z MON 00Z TUE 00Z WED 00Z THU
+PERIODS         TO      TO      TO      TO      TO      TO      TO  
+             12Z SUN 00Z MON 12Z MON 00Z TUE 00Z WED 00Z THU 00Z FRI
+                                                                    
+FORECAST HOUR    (12)   (24)    (36)    (48)    (72)    (96)   (120)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+LOCATION       KT                                                   
+                                                                    
+$$                                                                  
+FORECASTER BUCCI                                                    
+
+</pre>]]></description>
+<pubDate>Sun, 24 Sep 2023 02:47:16 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT2+shtml/240247.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT2+shtml/240247.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Storm Philippe Graphics</title>
+<description>
+<![CDATA[
+<a href="https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/024918.shtml?cone">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT17/AL172023_5day_cone_with_line_and_wind_sm2.png"
+alt="Tropical Storm Philippe 5-Day Uncertainty Track Image"
+width="500" height="400" /></a><br/>
+5-Day Uncertainty Track last updated Sun, 24 Sep 2023 02:49:18 GMT
+<br /><br /><a href="https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/024918.shtml?tswind120">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT17/AL172023_wind_probs_34_F120_sm2.png"
+alt="Tropical Storm Philippe 34-Knot Wind Speed Probabilities"
+width="500" height="400" /> </a><br/>
+Wind Speed Probabilities last updated Sun, 24 Sep 2023 03:29:09 GMT
+]]>
+</description>
+<pubDate>Sun, 24 Sep 2023 02:49:18 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/024918.shtml?cone</link>
+<guid>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/024918.shtml?cone</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+</channel>
+</rss>
