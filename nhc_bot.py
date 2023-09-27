@@ -63,20 +63,8 @@ def check_summary_guid_change(data_for_post):
     return old_post_data.get('summary_guid') != data_for_post['summary_guid']
 
 
-def make_and_post(post_content, data_for_post, alt_text):
-
-    m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
-    med_dict = m.media_post(data_for_post['graphic_data'],
-                            mime_type='image/png',
-                            description=alt_text)
-    out = m.status_post(post_content, media_ids=med_dict)
-    print(
-        f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
-    )
-    write_new_status_data(status_data=status_data)
-
-
 def make_list_of_storms(out):
+    """Since there can be multiple storms, find the summary and then the next 5 entries for each."""
     return [
         out[i:i + 6] for i, x in enumerate(out)
         if x['title'].startswith('Summary')

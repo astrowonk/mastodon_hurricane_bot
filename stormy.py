@@ -9,6 +9,7 @@ from mastodon import Mastodon
 class Stormy:
 
     def __init__(self, data_list):
+        """Inited with a list of 6 dictionaries created by process_item and make_list_of_storms"""
         assert len(data_list) == 6, "data set must be length 6"
         self.data_list = data_list
         self.process_data()
@@ -16,12 +17,13 @@ class Stormy:
         self.make_post_content()
 
     def set_storm_id(self):
+        """get the storm id from the summary with regex"""
         self.storm_id = re.search(r"\((.+)\)",
                                   self.data_for_post['summary_title']).group(1)
         self.data_for_post['storm_id'] = self.storm_id.replace('/', '_')
 
     def process_data(self):
-        """extract the needed data for Mastodon"""
+        """extract the needed data for Mastodon from the full tag:text list of dictionaries"""
         out = {}
         out['full_advisory_link'] = self.data_list[1]['link']
         out['full_advisory_title'] = self.data_list[1]['title']
@@ -70,6 +72,7 @@ class Stormy:
         self.post_content, self.non_headline = post_content, non_headline
 
     def make_alt_text(self):
+        """create alt text for png"""
         return '\n'.join(
             [self.data_for_post['summary_title'], self.non_headline])
 
