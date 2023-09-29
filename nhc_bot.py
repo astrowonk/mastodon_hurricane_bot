@@ -102,7 +102,7 @@ if __name__ == "__main__":
             theSummary.post_to_mastodon()
             json_write(out[0], 'summary.json')
         else:
-            if check_summary_guid_change(out[0]):
+            if not check_summary_guid_change(out[0]):
                 print("Guid for summary unchanged, no post of summary image.")
             else:
                 print("Only 1 storm, no summary")
