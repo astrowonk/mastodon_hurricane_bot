@@ -6,6 +6,43 @@ from config import API_TOKEN
 from mastodon import Mastodon
 
 
+class Summary():
+    req = None
+    active_systems_text = None
+    img_data = None
+
+    def __init__(self, summary_dict) -> None:
+        self.summary_dict = summary_dict
+        self.get_full_storm_webpage()
+        self.get_image()
+
+    def get_full_storm_webpage(self):
+        self.req = requests.get(self.summary_dict['guid'])
+
+    def get_image(self):
+        soup = BeautifulSoup(self.req.text, 'html.parser')
+        url_part = soup.select_one('img[id=twofig7d]').get('src')
+        url = f'https://www.nhc.noaa.gov/{url_part}'
+        self.img_data = requests.get(url).content
+
+    @property
+    def post_content(self):
+        pattern = r"(Active Systems:[\\n\s]+.+)\&\&"
+        search_string = html2text(self.summary_dict['description'])
+        m = re.search(pattern, " ".join(search_string.split()))
+        return m.group(1).strip().replace("Active Systems: ", '')
+
+    def post_to_mastodon(self):
+        m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
+        med_dict = m.media_post(self.img_data,
+                                mime_type='image/png',
+                                description=self.post_content)
+        out = m.status_post(self.post_content, media_ids=med_dict)
+        print(
+            f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+        )
+
+
 class Stormy:
 
     def __init__(self, data_list):
