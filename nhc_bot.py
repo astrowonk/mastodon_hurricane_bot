@@ -5,7 +5,7 @@ from config import API_TOKEN
 import argparse
 import json
 import datetime
-from stormy import Stormy
+from stormy import Stormy, Summary
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
 
@@ -52,7 +52,19 @@ def process_url(url=None, text=None):
     return [process_item(x) for x in theitems]
 
 
-def check_summary_guid_change(data_for_post):
+def check_summary_guid_change(out):
+    """checking if the guid has changed on the tropics summary"""
+    guid = out['guid']
+    try:
+        with open(f'summary.json', 'r') as f:
+            old_summary_data = json.load(f)
+    except:
+        old_summary_data = {}
+
+    return old_summary_data.get('summary_guid') != out['guid']
+
+
+def check_storm_guid_change(data_for_post):
     storm_id = data_for_post['storm_id']
     try:
         with open(f'{storm_id}_full_post_data.json', 'r') as f:
@@ -84,11 +96,14 @@ if __name__ == "__main__":
 
         out = process_url(CURRENT_URL)
         storm_list = make_list_of_storms(out)
-
+        if len(storm_list) > 1 and check_summary_guid_change():
+            theSummary = Summary(out[0])
+            theSummary.post_to_mastodon()
+            json_write(out[0, 'summary.json'])
         for raw_data in storm_list:
             s = Stormy(raw_data)
             data_for_post = s.data_for_post.copy()
-            if check_summary_guid_change(s.data_for_post) or args.force_update:
+            if check_storm_guid_change(s.data_for_post) or args.force_update:
                 if not args.no_post:
                     s.post_to_mastodon()
                     del data_for_post['graphic_data']
