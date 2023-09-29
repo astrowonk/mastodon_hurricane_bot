@@ -99,7 +99,7 @@ if __name__ == "__main__":
         if len(storm_list) > 1 and check_summary_guid_change():
             theSummary = Summary(out[0])
             theSummary.post_to_mastodon()
-            json_write(out[0, 'summary.json'])
+            json_write(out[0], 'summary.json')
         for raw_data in storm_list:
             s = Stormy(raw_data)
             data_for_post = s.data_for_post.copy()
