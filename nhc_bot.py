@@ -61,7 +61,7 @@ def check_summary_guid_change(out):
     except:
         old_summary_data = {}
 
-    return old_summary_data.get('summary_guid') != out['guid']
+    return old_summary_data.get('guid') != guid
 
 
 def check_storm_guid_change(data_for_post):
