@@ -30,7 +30,8 @@ class Summary():
         pattern = r"(Active Systems:[\\n\s]+.+)\&\&"
         search_string = html2text(self.summary_dict['description'])
         m = re.search(pattern, " ".join(search_string.split()))
-        return m.group(1).strip().replace("Active Systems: ", '')
+        regex_text = m.group(1).strip().replace("Active Systems: ", '')
+        return regex_text + "\n\n" + self.summary_dict['link']
 
     def post_to_mastodon(self):
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
