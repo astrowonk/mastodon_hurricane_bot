@@ -96,10 +96,16 @@ if __name__ == "__main__":
 
         out = process_url(CURRENT_URL)
         storm_list = make_list_of_storms(out)
-        if len(storm_list) > 1 and check_summary_guid_change():
+        if len(storm_list) > 1 and check_summary_guid_change(out[0]):
+
             theSummary = Summary(out[0])
             theSummary.post_to_mastodon()
             json_write(out[0], 'summary.json')
+        else:
+            if check_summary_guid_change(out[0]):
+                print("Guid for summary unchanged, no post of summary image.")
+            else:
+                print("Only 1 storm, no summary")
         for raw_data in storm_list:
             s = Stormy(raw_data)
             data_for_post = s.data_for_post.copy()
@@ -116,7 +122,7 @@ if __name__ == "__main__":
 
             else:
                 print(
-                    f"Guid for summary unchanged at {datetime.datetime.now().isoformat()}"
+                    f"Guid for storm {data_for_post['storm_id']} unchanged at {datetime.datetime.now().isoformat()}"
                 )
                 print("No posting to Mastodon")
         write_new_status_data(status_data)
