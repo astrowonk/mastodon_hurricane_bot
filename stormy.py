@@ -27,7 +27,7 @@ class Summary():
 
     @property
     def post_content(self):
-        pattern = r"(Active Systems:[\\n\s]+.+)\&\&"
+        pattern = r"(Active Systems:[\s\\n]+.+)\$\$"
         search_string = html2text(self.summary_dict['description'])
         m = re.search(pattern, " ".join(search_string.split()))
         regex_text = m.group(1).strip().replace("Active Systems: ", '')
