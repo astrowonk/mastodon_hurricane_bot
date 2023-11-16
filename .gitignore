@@ -6,3 +6,5 @@ data.log
 *.json
 al182023_5day_latest/
 *.zip
+data/
+test.gif
