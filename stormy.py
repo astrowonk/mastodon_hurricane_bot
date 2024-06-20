@@ -53,7 +53,7 @@ class Stormy:
         self.data_list = data_list
         self.process_data()
         self.set_storm_id()
-        # self.make_post_content()
+        self.make_post_content()
 
     def set_storm_id(self):
         """get the storm id from the summary with regex"""
