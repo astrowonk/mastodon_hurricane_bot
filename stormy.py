@@ -5,6 +5,8 @@ from html2text import html2text
 from config import API_TOKEN
 from mastodon import Mastodon
 
+VERIFY = True
+
 
 class Summary:
     req = None
@@ -17,13 +19,13 @@ class Summary:
         self.get_image()
 
     def get_full_storm_webpage(self):
-        self.req = requests.get(self.summary_dict["guid"])
+        self.req = requests.get(self.summary_dict["guid"], verify=VERIFY)
 
     def get_image(self):
         soup = BeautifulSoup(self.req.text, "html.parser")
         url_part = soup.select_one("img[id=twofig7d]").get("src")
         url = f"https://www.nhc.noaa.gov/{url_part}"
-        self.img_data = requests.get(url).content
+        self.img_data = requests.get(url, verify=VERIFY).content
 
     @property
     def post_content(self):
@@ -51,7 +53,7 @@ class Stormy:
         self.data_list = data_list
         self.process_data()
         self.set_storm_id()
-        self.make_post_content()
+        # self.make_post_content()
 
     def set_storm_id(self):
         """get the storm id from the summary with regex"""
@@ -69,7 +71,9 @@ class Stormy:
         out["summary_guid"] = self.data_list[0]["guid"]
         out["summary"] = html2text(self.data_list[0]["description"]).replace("\n", " ")
         soup = BeautifulSoup(self.data_list[5]["description"], "html.parser")
-        out["graphic_data"] = requests.get(soup.find("img")["src"]).content
+        out["graphic_data"] = requests.get(
+            soup.find("img")["src"], verify=VERIFY
+        ).content
         out["graphic_link"] = soup.find("a")["href"]
         self.data_for_post = out
 
@@ -79,7 +83,7 @@ class Stormy:
         self.storm_code = re.search(
             r"\((.+)\)", self.data_for_post["summary_title"]
         ).group(1)
-        pattern = r"(Tropical Depression |Hurricane |Tropical Storm|Post-Tropical Cyclone|Potential Tropical Cyclone )"
+        pattern = r"(Tropical Depression |Hurricane |Tropical Storm|Post-Tropical Cyclone|Remnants of|Potential Tropical Cyclone )"
         clean_title = re.sub(pattern, "", clean_title)
 
         # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
@@ -90,7 +94,7 @@ class Stormy:
 
         self.non_headline = ". ".join(sentences[2:])
 
-        pattern = r"(Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone|Potential Tropical Cyclone) (.+) Public Advisory Number (.+)"
+        pattern = r"(Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone|Remnants of|Potential Tropical Cyclone) (.+) Public Advisory Number (.+)"
         rem = re.match(pattern, self.data_for_post["full_advisory_title"])
         advisory_number = rem.group(3)
         self.storm_type = rem.group(1)
