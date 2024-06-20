@@ -79,7 +79,6 @@ class Stormy:
 
     def make_post_content(self):
         """with the data dictionary, create the text for the post."""
-        clean_title = re.sub(r"\(.+\)", "", self.data_for_post["summary_title"]).strip()
         self.storm_code = re.search(
             r"\((.+)\)", self.data_for_post["summary_title"]
         ).group(1)
@@ -92,7 +91,7 @@ class Stormy:
 
         self.non_headline = ". ".join(sentences[2:])
 
-        pattern = r"(.+) (.+) Public Advisory Number (.+)"
+        pattern = r"(.+) (.+) Public Advisory Number (.+)$"
         rem = re.match(pattern, self.data_for_post["full_advisory_title"])
         advisory_number = rem.group(3)
         self.storm_type = rem.group(1)
