@@ -88,7 +88,7 @@ class Stormy:
 
         sentences = cleaner_summary.split(". ")
 
-        non_headline = ". ".join(sentences[2:])
+        self.non_headline = ". ".join(sentences[2:])
 
         pattern = r"(Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone|Potential Tropical Cyclone) (.+) Public Advisory Number (.+)"
         rem = re.match(pattern, self.data_for_post["full_advisory_title"])
@@ -96,17 +96,15 @@ class Stormy:
         self.storm_type = rem.group(1)
 
         ### F String
-        post_content = (
+        self.post_content = (
             # f"{clean_title}\n\n"
             f"{sentences[0].strip()}.\n\n"
             f"{sentences[1].strip()}.\n\n"
-            f"{non_headline}\n\n"
+            f"{self.non_headline}\n\n"
             f"Track: {self.data_for_post['graphic_link']}\n"
             f"Advisory {advisory_number}: {self.data_for_post['full_advisory_link']}\n\n"
             f"#{rem.group(2)}"
         )
-
-        self.post_content, self.non_headline = post_content, non_headline
 
     def make_alt_text(self):
         """create alt text for png"""
