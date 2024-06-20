@@ -5,7 +5,7 @@ from html2text import html2text
 from config import API_TOKEN
 from mastodon import Mastodon
 
-VERIFY = True
+VERIFY = False
 
 
 class Summary:
@@ -83,8 +83,6 @@ class Stormy:
         self.storm_code = re.search(
             r"\((.+)\)", self.data_for_post["summary_title"]
         ).group(1)
-        pattern = r"(Tropical Depression |Hurricane |Tropical Storm|Post-Tropical Cyclone|Remnants of|Potential Tropical Cyclone )"
-        clean_title = re.sub(pattern, "", clean_title)
 
         # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
         pattern = r"\.\.\.(.*?)\.\.\."
@@ -94,7 +92,7 @@ class Stormy:
 
         self.non_headline = ". ".join(sentences[2:])
 
-        pattern = r"(Tropical Depression|Hurricane|Tropical Storm|Post-Tropical Cyclone|Remnants of|Potential Tropical Cyclone) (.+) Public Advisory Number (.+)"
+        pattern = r"(.+) (.+) Public Advisory Number (.+)"
         rem = re.match(pattern, self.data_for_post["full_advisory_title"])
         advisory_number = rem.group(3)
         self.storm_type = rem.group(1)
