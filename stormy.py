@@ -5,7 +5,7 @@ from html2text import html2text
 from config import API_TOKEN
 from mastodon import Mastodon
 
-VERIFY = False
+VERIFY = True
 
 
 class Summary:
@@ -91,7 +91,7 @@ class Stormy:
 
         self.non_headline = ". ".join(sentences[2:])
 
-        pattern = r"(.+) (.+) Public Advisory Number (.+)$"
+        pattern = r"(.+) (\S+) Public Advisory Number (.+)$"
         rem = re.match(pattern, self.data_for_post["full_advisory_title"])
         advisory_number = rem.group(3)
         self.storm_type = rem.group(1)
