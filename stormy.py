@@ -62,50 +62,53 @@ class Stormy:
 
     def process_data(self):
         """extract the needed data for Mastodon from the full tag:text list of dictionaries"""
-        out = {}
-        out['full_advisory_link'] = self.data_list[1]['link']
-        out['full_advisory_title'] = self.data_list[1]['title']
-        out['summary_title'] = self.data_list[0]['title']
-        out['summary_guid'] = self.data_list[0]['guid']
-        out['summary'] = html2text(self.data_list[0]['description']).replace('\n', ' ')
+        self.data_for_post = {}
+        self.data_for_post['full_advisory_link'] = self.data_list[1]['link']
+        self.data_for_post['full_advisory_title'] = self.data_list[1]['title']
+        self.data_for_post['summary_title'] = self.data_list[0]['title']
+        self.data_for_post['summary_guid'] = self.data_list[0]['guid']
+        self.data_for_post['summary'] = html2text(self.data_list[0]['description']).replace(
+            '\n', ' '
+        )
         soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
-        out['graphic_data'] = requests.get(
-            soup.find('img')['src'], verify=VERIFY, headers={'Cache-Control': 'no-cache'}
+        graphic_url = soup.find('img')['src']
+        pattern = r'_sm2\.png$'
+        # change url so we can not use the small image, but a higher resolution one.
+        graphic_url = re.sub(pattern=pattern, repl='.png', string=graphic_url)
+        self.data_for_post['graphic_data'] = requests.get(
+            graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
         ).content
-        out['graphic_link'] = soup.find('a')['href']
-        self.data_for_post = out
+        self.data_for_post['graphic_link'] = soup.find('a')['href']
+
+        self.storm_code = re.search(r'\((.+)\)', self.data_for_post['summary_title']).group(1)
+
+        pattern = r'(.+) (\S+) Public Advisory Number (.+)$'
+        rem = re.match(pattern, self.data_for_post['full_advisory_title'])
+        self.data_for_post['advisory_number'] = rem.group(3)
+        self.data_for_post['storm_type'] = rem.group(1)
+        self.data_for_post['storm_name'] = rem.group(2).strip()
 
     def make_post_content(self):
         """with the data dictionary, create the text for the post."""
-        self.storm_code = re.search(r'\((.+)\)', self.data_for_post['summary_title']).group(1)
-
         # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
         pattern = r'\.\.\.(.*?)\.\.\.'
         cleaner_summary = re.sub(pattern, r'\1.', self.data_for_post['summary'])
 
         sentences = cleaner_summary.split('. ')
-
-        self.non_headline = '. '.join(sentences[2:])
-
-        pattern = r'(.+) (\S+) Public Advisory Number (.+)$'
-        rem = re.match(pattern, self.data_for_post['full_advisory_title'])
-        advisory_number = rem.group(3)
-        self.storm_type = rem.group(1)
-        storm_name = rem.group(2).strip()
-
+        non_headline = '. '.join(sentences[2:])
         hashtag = (
-            f'#{storm_name}'
-            if self.storm_type not in ('Potential Tropical Cyclone', 'Tropical Depression')
+            f"#{self.data_for_post['storm_name']}"
+            if self.data_for_post['storm_type']
+            not in ('Potential Tropical Cyclone', 'Tropical Depression')
             else ''
         )
         ### F String
         self.post_content = (
-            # f"{clean_title}\n\n"
             f"{sentences[0].strip()}.\n\n"
             f"{sentences[1].strip()}.\n\n"
-            f"{self.non_headline}\n\n"
+            f"{non_headline}\n\n"
             f"Track: {self.data_for_post['graphic_link']}\n"
-            f"Advisory {advisory_number}: {self.data_for_post['full_advisory_link']}\n\n"
+            f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
             f"{hashtag}"
         )
 
