@@ -67,8 +67,8 @@ class Stormy:
         self.data_for_post['full_advisory_title'] = self.data_list[1]['title']
         self.data_for_post['summary_title'] = self.data_list[0]['title']
         self.data_for_post['summary_guid'] = self.data_list[0]['guid']
-        self.data_for_post['summary'] = html2text(self.data_list[0]['description']).replace(
-            '\n', ' '
+        self.data_for_post['summary'] = (
+            html2text(self.data_list[0]['description']).replace('\n', ' ').strip()
         )
         soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
         graphic_url = soup.find('img')['src']

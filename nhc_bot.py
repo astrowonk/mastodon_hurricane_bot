@@ -83,7 +83,7 @@ def check_storm_guid_change(data_for_post):
         old_post_data = {}
 
     return (old_post_data.get('summary_guid') != data_for_post['summary_guid']) and (
-        old_post_data.get('summary').strip() != data_for_post['summary'].strip
+        old_post_data.get('summary').strip() != data_for_post['summary'].strip()
     )
 
 
