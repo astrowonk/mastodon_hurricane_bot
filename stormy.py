@@ -95,7 +95,7 @@ class Stormy:
         cleaner_summary = re.sub(pattern, r'\1.', self.data_for_post['summary'])
 
         sentences = cleaner_summary.split('. ')
-        non_headline = '. '.join(sentences[2:])
+        self.non_headline = '. '.join(sentences[2:])
         hashtag = (
             f"#{self.data_for_post['storm_name']}"
             if self.data_for_post['storm_type']
@@ -106,7 +106,7 @@ class Stormy:
         self.post_content = (
             f"{sentences[0].strip()}.\n\n"
             f"{sentences[1].strip()}.\n\n"
-            f"{non_headline}\n\n"
+            f"{self.non_headline}\n\n"
             f"Track: {self.data_for_post['graphic_link']}\n"
             f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
             f"{hashtag}"
