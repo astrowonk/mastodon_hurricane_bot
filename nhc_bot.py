@@ -82,7 +82,9 @@ def check_storm_guid_change(data_for_post):
     except:
         old_post_data = {}
 
-    return old_post_data.get('summary_guid') != data_for_post['summary_guid']
+    return (old_post_data.get('summary_guid') != data_for_post['summary_guid']) and (
+        old_post_data.get('summary').strip() != data_for_post['summary'].strip
+    )
 
 
 def make_list_of_storms(out):
@@ -121,7 +123,7 @@ if __name__ == '__main__':
                 if check_storm_guid_change(s.data_for_post) or args.force_update:
                     if not args.no_post:
                         print_to_slack('Posting to Mastodon.')
-                        print_to_slack(f"Guid for storm {data_for_post['storm_id']}")
+                        print_to_slack(f"Guid for storm {data_for_post['summary_guid']}")
                         p_status = s.post_to_mastodon()
                         print_to_slack(p_status)
                         del data_for_post['graphic_data']
