@@ -125,6 +125,6 @@ class Stormy:
             description=self.make_alt_text(),
         )
         out = m.status_post(self.post_content, media_ids=med_dict)
-        print(
+        return (
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
         )
