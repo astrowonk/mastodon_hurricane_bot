@@ -120,6 +120,8 @@ if __name__ == '__main__':
                 data_for_post = s.data_for_post.copy()
                 if check_storm_guid_change(s.data_for_post) or args.force_update:
                     if not args.no_post:
+                        print_to_slack('Posting to Mastodon.')
+                        print_to_slack(f"Guid for storm {data_for_post['storm_id']}")
                         s.post_to_mastodon()
                         del data_for_post['graphic_data']
                         storm_id = data_for_post['storm_id']
