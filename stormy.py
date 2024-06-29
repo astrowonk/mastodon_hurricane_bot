@@ -69,7 +69,9 @@ class Stormy:
         out['summary_guid'] = self.data_list[0]['guid']
         out['summary'] = html2text(self.data_list[0]['description']).replace('\n', ' ')
         soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
-        out['graphic_data'] = requests.get(soup.find('img')['src'], verify=VERIFY).content
+        out['graphic_data'] = requests.get(
+            soup.find('img')['src'], verify=VERIFY, headers={'Cache-Control': 'no-cache'}
+        ).content
         out['graphic_link'] = soup.find('a')['href']
         self.data_for_post = out
 
