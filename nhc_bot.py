@@ -124,6 +124,7 @@ if __name__ == '__main__':
                             storm_id = data_for_post['storm_id']
                             json_write(data_for_post, f'{storm_id}_full_post_data.json')
                     else:
+                        print_to_slack('Posting disabled. Sending post content to log.')
                         print_to_slack(s.post_content)
                         print_to_slack(len(s.post_content))
 
