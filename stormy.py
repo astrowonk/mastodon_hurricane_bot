@@ -4,6 +4,8 @@ import requests
 from html2text import html2text
 from config import API_TOKEN
 from mastodon import Mastodon
+import hashlib
+from time import sleep
 
 VERIFY = True
 
@@ -71,13 +73,11 @@ class Stormy:
             html2text(self.data_list[0]['description']).replace('\n', ' ').strip()
         )
         soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
-        graphic_url = soup.find('img')['src']
+        self.graphic_url = soup.find('img')['src']
         pattern = r'_sm2\.png$'
         # change url so we can not use the small image, but a higher resolution one.
-        graphic_url = re.sub(pattern=pattern, repl='.png', string=graphic_url)
-        self.data_for_post['graphic_data'] = requests.get(
-            graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
-        ).content
+        self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
+        self.make_graphic_data()
         self.data_for_post['graphic_link'] = soup.find('a')['href']
 
         self.storm_code = re.search(r'\((.+)\)', self.data_for_post['summary_title']).group(1)
@@ -87,6 +87,14 @@ class Stormy:
         self.data_for_post['advisory_number'] = rem.group(3)
         self.data_for_post['storm_type'] = rem.group(1)
         self.data_for_post['storm_name'] = rem.group(2).strip()
+
+    def make_graphic_data(self):
+        self.data_for_post['graphic_data'] = requests.get(
+            self.graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
+        ).content
+        self.data_for_post['graphic_hash'] = hashlib.md5(
+            self.data_for_post['graphic_data']
+        ).hexdigest()
 
     def make_post_content(self):
         """with the data dictionary, create the text for the post."""
@@ -116,8 +124,23 @@ class Stormy:
         """create alt text for png"""
         return '\n'.join([self.data_for_post['summary_title'], self.non_headline])
 
-    def post_to_mastodon(self):
+    def post_to_mastodon(self, verify_image_hash=None):
         """Use data to post to Mastodon instance"""
+        if verify_image_hash:
+            attempts = 1
+            while attempts < 3:
+                if verify_image_hash == self.data_for_post['graphic_hash']:
+                    print(
+                        f'Image data is identical with hash {verify_image_hash}. Sleeping and retrying. Attempt {attempts}'
+                    )
+                    sleep(60)
+                    self.make_graphic_data()
+                    attempts = attempts + 1
+                else:
+                    break
+            if verify_image_hash == self.data_for_post['graphic_hash']:
+                return False, 'Failed to post due to duplicate image data'
+
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
         med_dict = m.media_post(
             self.data_for_post['graphic_data'],
@@ -125,6 +148,6 @@ class Stormy:
             description=self.make_alt_text(),
         )
         out = m.status_post(self.post_content, media_ids=med_dict)
-        return (
+        return True, (
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
         )

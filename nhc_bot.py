@@ -124,11 +124,12 @@ if __name__ == '__main__':
                     if not args.no_post:
                         print_to_slack('Posting to Mastodon.')
                         print_to_slack(f"Guid for storm {data_for_post['summary_guid']}")
-                        p_status = s.post_to_mastodon()
+                        p_bool, p_status = s.post_to_mastodon()
                         print_to_slack(p_status)
-                        del data_for_post['graphic_data']
-                        storm_id = data_for_post['storm_id']
-                        json_write(data_for_post, f'{storm_id}_full_post_data.json')
+                        if p_bool:
+                            del data_for_post['graphic_data']
+                            storm_id = data_for_post['storm_id']
+                            json_write(data_for_post, f'{storm_id}_full_post_data.json')
                     else:
                         print_to_slack(s.post_content)
                         print_to_slack(len(s.post_content))
