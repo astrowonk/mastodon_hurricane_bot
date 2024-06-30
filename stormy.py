@@ -87,21 +87,18 @@ class Stormy:
             self.data_for_post['update_link'] = self.data_list[5]['link']
             self.data_for_post['update_title'] = self.data_list[5]['title']
             soup = BeautifulSoup(self.data_list[6]['description'], 'html.parser')
-            img_soup = soup.find('img')
+        else:
+            soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
+        img_soup = soup.find('img')
 
-            self.graphic_url = img_soup['src']
-            self.data_for_post['graphic_link'] = soup.find('a')['href']
+        self.graphic_url = img_soup['src']
+        self.data_for_post['graphic_link'] = soup.find('a')['href']
 
-            self.data_for_post['graphic_link'] = None
-            self.data_for_post['graphic_data'] = None
-
-            pattern = r'_sm2\.png$'
-            # change url so we can not use the small image, but a higher resolution one.
-            if self.graphic_url:
-                self.graphic_url = re.sub(
-                    pattern=pattern, repl='.png', string=self.graphic_url
-                )
-            self.make_graphic_data()
+        pattern = r'_sm2\.png$'
+        # change url so we can not use the small image, but a higher resolution one.
+        if self.graphic_url:
+            self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
+        self.make_graphic_data()
 
     def make_graphic_data(self):
         if not self.graphic_url:
@@ -137,7 +134,7 @@ class Stormy:
             title = self.data_for_post['update_title'] + '\n\n'
         else:
             links = (
-                f"Track: {self.data_for_post['graphic_link']}\n"
+                f"Track: {self.data_for_post.get('graphic_link')}\n"
                 f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
             )
 
