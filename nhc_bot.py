@@ -55,14 +55,19 @@ def process_url(url=None, text=None):
     return [process_item(x) for x in theitems]
 
 
-def check_summary_guid_change(out):
-    """checking if the guid has changed on the tropics summary"""
-    guid = out['guid']
+def get_summary_data(out):
     try:
         with open('summary.json', 'r') as f:
             old_summary_data = json.load(f)
     except:
         old_summary_data = {}
+    return old_summary_data
+
+
+def check_summary_guid_change(out):
+    """checking if the guid has changed on the tropics summary"""
+    guid = out['guid']
+    old_summary_data = get_summary_data(out)
 
     return old_summary_data.get('guid') != guid
 
@@ -111,13 +116,18 @@ if __name__ == '__main__':
                 else:
                     print_to_slack('Only 1 storm, no summary')
             for raw_data in storm_list:
+                graphic_hash = get_summary_data(raw_data).get('graphic_hash')
+
                 s = Stormy(raw_data)
+
                 data_for_post = s.data_for_post.copy()
                 if check_storm_guid_change(s.data_for_post) or args.force_update:
                     if not args.no_post:
                         print_to_slack('Posting to Mastodon.')
                         print_to_slack(f"Guid for storm {data_for_post['summary_guid']}")
-                        p_bool, p_status = s.post_to_mastodon()
+                        old_summary_data = get_summary_data(out)
+
+                        p_bool, p_status = s.post_to_mastodon(verify_image_hash=graphic_hash)
                         print_to_slack(p_status)
                         if p_bool:
                             del data_for_post['graphic_data']

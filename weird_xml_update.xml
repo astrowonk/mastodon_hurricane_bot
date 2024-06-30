@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:georss="http://www.georss.org/georss"
+ xmlns:gml="http://www.opengis.net/gml"
+ xmlns:nhc="https://www.nhc.noaa.gov">
+<channel>
+<pubDate>Sun, 30 Jun 2024 15:37:48 GMT</pubDate>
+<title>NHC Atlantic</title>
+<description>Active tropical cyclones in the Atlantic, Caribbean, and the Gulf of Mexico</description>
+<link>https://www.nhc.noaa.gov/</link>
+<copyright>none</copyright>
+<managingEditor>nhcwebmaster@noaa.gov (NHC Webmaster)</managingEditor>
+<language>en-us</language>
+<webMaster>nhcwebmaster@noaa.gov (NHC Webmaster)</webMaster>
+<image>
+<url>https://www.nhc.noaa.gov/gifs/xml_logo_nhc.gif</url>
+<link>https://www.nhc.noaa.gov/</link>
+<title>NHC Atlantic</title>
+<description>NOAA logo</description>
+<width>95</width>
+<height>45</height>
+</image>
+<item>
+<title>Atlantic Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br/>
+000<br/>
+ABNT20 KNHC 301120<br/>
+TWOAT <br/>
+<br/>
+Tropical Weather Outlook<br/>
+NWS National Hurricane Center Miami FL<br/>
+800 AM EDT Sun Jun 30 2024<br/>
+<br/>
+For the North Atlantic...Caribbean Sea and the Gulf of Mexico:<br/>
+<br/>
+Active Systems: <br/>
+The National Hurricane Center is issuing advisories on Hurricane <br/>
+Beryl, located several hundred miles east of the Windward Islands. <br/>
+<br/>
+Southwestern Gulf of Mexico (AL94): <br/>
+An area of low pressure located over the southern portion <br/>
+of the Bay of Campeche is producing disorganized showers and <br/>
+thunderstorms.  Environmental conditions appear conducive for <br/>
+further development, and a short-lived tropical depression could <br/>
+form before the system moves inland over Mexico on Monday morning.  <br/>
+Interests along the Gulf Coast of Mexico should monitor the <br/>
+progress of this system.  Regardless of development, heavy rainfall <br/>
+associated with the area of low pressure will continue to affect <br/>
+portions of Central America and Mexico through early next week.  An <br/>
+Air Force reconnaissance aircraft is scheduled to investigate the <br/>
+system later today.<br/>
+* Formation chance through 48 hours...medium...50 percent.<br/>
+* Formation chance through 7 days...medium...50 percent.<br/>
+<br/>
+Eastern Tropical Atlantic (AL96):<br/>
+Showers and thunderstorms continue in association with an area of <br/>
+low pressure located several hundred miles southwest of the Cabo <br/>
+Verde Islands.  Environmental conditions appear conducive for <br/>
+additional development of this system, and a tropical depression is <br/>
+likely to form by the middle part of this week while it moves <br/>
+generally westward at 15 to 20 mph across the eastern and central <br/>
+tropical Atlantic. <br/>
+* Formation chance through 48 hours...medium...40 percent.<br/>
+* Formation chance through 7 days...high...70 percent.<br/>
+<br/>
+$$<br/>
+Forecaster Roberts<br/>
+]]>
+</description>
+<pubDate>Sun, 30 Jun 2024 11:20:55 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=atlc</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;202406301120</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+ <title>Summary for Hurricane Beryl (AT2/AL022024)</title>
+ <guid isPermaLink="false">summary-al022024-202406301537</guid>
+ <pubDate>Sun, 30 Jun 2024 15:37:01 GMT</pubDate>
+ <author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+ <link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/301445.shtml</link>
+ <description>
+  ...RECONNAISSANCE AIRCRAFT FIND BERYL NOW AN EXTREMELY DANGEROUS  CATEGORY 4 HURRICANE... ...LIFE-THREATENING WINDS AND STORM SURGE EXPECTED IN THE WINDWARD  ISLANDS BEGINNING EARLY MONDAY MORNING...
+ As of 11:35 AM AST Sun Jun 30
+ the center of Beryl was located near 10.8, -54.9
+ with movement W at 21 mph.
+ The minimum central pressure was 962 mb
+ with maximum sustained winds of about 130 mph.
+ </description>
+ <nhc:Cyclone>
+  <nhc:center>10.8, -54.9</nhc:center>
+  <nhc:type>Hurricane</nhc:type>
+  <nhc:name>Beryl</nhc:name>
+  <nhc:wallet>AT2</nhc:wallet>
+  <nhc:atcf>AL022024</nhc:atcf>
+  <nhc:datetime>11:35 AM AST Sun Jun 30</nhc:datetime>
+  <nhc:movement>W at 21 mph</nhc:movement>
+  <nhc:pressure>962 mb</nhc:pressure>
+  <nhc:wind>130 mph</nhc:wind>
+  <nhc:headline> ...RECONNAISSANCE AIRCRAFT FIND BERYL NOW AN EXTREMELY DANGEROUS  CATEGORY 4 HURRICANE... ...LIFE-THREATENING WINDS AND STORM SURGE EXPECTED IN THE WINDWARD  ISLANDS BEGINNING EARLY MONDAY MORNING...</nhc:headline>
+ </nhc:Cyclone>
+</item>
+<item>
+<title>Hurricane Beryl Public Advisory Number 8</title>
+<description>Issued at 1100 AM AST Sun Jun 30 2024  <![CDATA[<pre>
+
+000
+WTNT32 KNHC 301445
+TCPAT2
+ 
+BULLETIN
+Hurricane Beryl Advisory Number   8
+NWS National Hurricane Center Miami FL       AL022024
+1100 AM AST Sun Jun 30 2024
+ 
+...VERY DANGEROUS MAJOR HURRICANE BERYL STILL STRENGTHENING AS IT
+APPROACHES THE WINDWARD ISLANDS...
+...LIFE-THREATENING WINDS AND STORM SURGE EXPECTED THERE BEGINNING
+EARLY MONDAY MORNING...
+ 
+ 
+SUMMARY OF 1100 AM AST...1500 UTC...INFORMATION
+-----------------------------------------------
+LOCATION...10.7N 54.9W
+ABOUT 355 MI...570 KM ESE OF BARBADOS
+ABOUT 470 MI...755 KM E OF GRENADA
+MAXIMUM SUSTAINED WINDS...120 MPH...195 KM/H
+PRESENT MOVEMENT...W OR 275 DEGREES AT 21 MPH...33 KM/H
+MINIMUM CENTRAL PRESSURE...964 MB...28.47 INCHES
+ 
+ 
+WATCHES AND WARNINGS
+--------------------
+CHANGES WITH THIS ADVISORY:
+ 
+The government of Trinidad has issued a Tropical Storm Watch for 
+Trinidad.
+ 
+SUMMARY OF WATCHES AND WARNINGS IN EFFECT:
+ 
+A Hurricane Warning is in effect for...
+* Barbados
+* St. Lucia
+* St. Vincent and the Grenadine Islands
+* Grenada
+* Tobago
+ 
+A Tropical Storm Warning is in effect for...
+* Martinique
+ 
+A Tropical Storm Watch is in effect for...
+* Dominica
+* Trinidad
+ 
+A Hurricane Warning means that hurricane conditions are expected
+somewhere within the warning area.  Preparations to protect life
+and property should be rushed to completion.
+ 
+A Tropical Storm Warning means that tropical storm conditions are
+expected somewhere within the warning area within 36 hours.
+ 
+A Tropical Storm Watch means that tropical storm conditions are
+possible within the watch area, generally within 48 hours.
+ 
+Interests elsewhere in the Lesser Antilles, Hispaniola, Jamaica, 
+the Cayman Islands and the remainder of the northwestern Caribbean 
+should closely monitor the progress of Beryl.  Additional watches 
+or warnings may be required later today or tonight.
+ 
+For storm information specific to your area, please monitor
+products issued by your national meteorological service.
+ 
+ 
+DISCUSSION AND OUTLOOK
+----------------------
+At 1100 AM AST (1500 UTC), the eye of Hurricane Beryl was located
+near latitude 10.7 North, longitude 54.9 West. Beryl is moving
+toward the west near 21 mph (33 km/h). A continued quick westward
+to west-northwestward motion is expected during the next few days.
+On the forecast track, the center of Beryl is expected to move
+across the Windward Islands Monday morning and across the
+southeastern and central Caribbean Sea late Monday through 
+Wednesday.
+ 
+Maximum sustained winds have increased to near 120 mph (195 km/h) 
+with higher gusts.  Beryl is a category 3 hurricane on 
+the Saffir-Simpson Hurricane Wind Scale.  Some additional 
+strengthening is forecast through tonight, and Beryl is expected to 
+become an extremely dangerous category 4 hurricane before it reaches 
+the Windward Islands. 
+ 
+Hurricane-force winds extend outward up to 30 miles (45 km) from the
+center and tropical-storm-force winds extend outward up to 115 miles
+(185 km).
+ 
+The minimum central pressure based on data from the NOAA and Air 
+Force Hurricane Hunters is 964 mb (28.47 inches).
+ 
+ 
+HAZARDS AFFECTING LAND
+----------------------
+Key messages for Beryl can be found in the Tropical Cyclone
+Discussion under AWIPS header MIATCDAT2 and WMO header WTNT42 KNHC.
+ 
+WIND: Hurricane conditions are expected in the hurricane warning
+area beginning early Monday morning.  Potentially catastrophic wind 
+damage is expected where the eyewall of Beryl moves through portions 
+of the Windward Islands, with the highest risk of the core in St. 
+Vincent and the Grenadines, and Grenada. 
+
+Wind speeds atop and on the windward sides of hills and mountains 
+are often up to 30 percent stronger than the near-surface winds 
+indicated in this advisory, and in some elevated locations could be 
+even greater.
+  
+Tropical storm conditions are expected in the tropical storm warning
+area starting late tonight, making outside preparations difficult or
+dangerous.
+ 
+Tropical storm conditions are possible within the watch area
+starting late tonight.
+
+STORM SURGE:  A life-threatening storm surge will raise water levels
+by as much as 6 to 9 feet above normal tide levels in areas of
+onshore flow near where the eye makes landfall in the hurricane
+warning area.  Near the coast, the surge will be accompanied by
+large and destructive waves.
+ 
+RAINFALL: Hurricane Beryl is expected to produce rainfall totals of 
+3 to 6 inches across Barbados and the Windward Islands through 
+Monday. Localized maxima of 10 inches is possible, especially in the 
+Grenadines. This rainfall may cause flash flooding in vulnerable 
+areas.
+
+For a complete depiction of forecast rainfall and flash flooding 
+associated with Hurricane Beryl, please see the National Weather 
+Service Storm Total Rainfall Graphic, available at 
+hurricanes.gov/graphics_at2.shtml?rainqpf 
+ 
+SURF:  Large swells generated by Beryl are expected across
+Windward and southern Leeward Islands during the next couple of
+days.  These swells are expected to cause life-threatening surf and
+rip current conditions. Please consult products from your local
+weather office.
+ 
+ 
+NEXT ADVISORY
+-------------
+Next intermediate advisory at 200 PM AST.
+Next complete advisory at 500 PM AST.
+ 
+$$
+Forecaster Cangialosi
+ 
+</pre>]]></description>
+<pubDate>Sun, 30 Jun 2024 14:45:28 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/301445.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCPAT2+shtml/301445.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Hurricane Beryl Forecast Advisory Number 8</title>
+<description>Issued at 1500 UTC SUN JUN 30 2024  <![CDATA[<pre>
+
+000
+WTNT22 KNHC 301444
+TCMAT2
+ 
+HURRICANE BERYL FORECAST/ADVISORY NUMBER   8
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL022024
+1500 UTC SUN JUN 30 2024
+ 
+HURRICANE CENTER LOCATED NEAR 10.7N  54.9W AT 30/1500Z
+POSITION ACCURATE WITHIN  10 NM
+ 
+PRESENT MOVEMENT TOWARD THE WEST OR 275 DEGREES AT  18 KT
+ 
+ESTIMATED MINIMUM CENTRAL PRESSURE  964 MB
+EYE DIAMETER  10 NM
+MAX SUSTAINED WINDS 105 KT WITH GUSTS TO 130 KT.
+64 KT....... 25NE  20SE  15SW  25NW.
+50 KT....... 50NE  40SE  30SW  40NW.
+34 KT.......100NE  80SE  70SW  80NW.
+12 FT SEAS..135NE  90SE  60SW 120NW.
+WINDS AND SEAS VARY GREATLY IN EACH QUADRANT.  RADII IN NAUTICAL
+MILES ARE THE LARGEST RADII EXPECTED ANYWHERE IN THAT QUADRANT.
+ 
+REPEAT...CENTER LOCATED NEAR 10.7N  54.9W AT 30/1500Z
+AT 30/1200Z CENTER WAS LOCATED NEAR 10.6N  54.0W
+ 
+FORECAST VALID 01/0000Z 11.2N  57.5W
+MAX WIND 120 KT...GUSTS 145 KT.
+64 KT... 25NE  20SE  15SW  25NW.
+50 KT... 50NE  40SE  30SW  40NW.
+34 KT...100NE  80SE  70SW  90NW.
+ 
+FORECAST VALID 01/1200Z 12.1N  60.9W
+MAX WIND 120 KT...GUSTS 145 KT.
+64 KT... 25NE  20SE  15SW  25NW.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+FORECAST VALID 02/0000Z 13.3N  64.3W
+MAX WIND 115 KT...GUSTS 140 KT.
+64 KT... 25NE  20SE  15SW  25NW.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+FORECAST VALID 02/1200Z 14.6N  68.2W
+MAX WIND 115 KT...GUSTS 140 KT.
+64 KT... 25NE  20SE  15SW  25NW.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+FORECAST VALID 03/0000Z 15.6N  72.1W
+MAX WIND 110 KT...GUSTS 135 KT.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+FORECAST VALID 03/1200Z 16.4N  75.9W
+MAX WIND 105 KT...GUSTS 130 KT.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+EXTENDED OUTLOOK. NOTE...ERRORS FOR TRACK HAVE AVERAGED NEAR 125 NM
+ON DAY 4 AND 175 NM ON DAY 5...AND FOR INTENSITY NEAR 15 KT EACH DAY
+ 
+OUTLOOK VALID 04/1200Z 17.8N  82.8W
+MAX WIND  95 KT...GUSTS 115 KT.
+50 KT... 50NE  30SE  30SW  40NW.
+34 KT...110NE  80SE  70SW  90NW.
+ 
+OUTLOOK VALID 05/1200Z 19.2N  88.3W...INLAND
+MAX WIND  75 KT...GUSTS  90 KT.
+50 KT... 40NE  30SE   0SW  30NW.
+34 KT...120NE  70SE  40SW  70NW.
+ 
+REQUEST FOR 3 HOURLY SHIP REPORTS WITHIN 300 MILES OF 10.7N  54.9W
+ 
+INTERMEDIATE PUBLIC ADVISORY...WTNT32 KNHC/MIATCPAT2...AT 30/1800Z
+ 
+NEXT ADVISORY AT 30/2100Z
+ 
+$$
+FORECASTER CANGIALOSI
+ 
+ 
+</pre>]]></description>
+<pubDate>Sun, 30 Jun 2024 14:44:58 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCMAT2+shtml/301444.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCMAT2+shtml/301444.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Hurricane Beryl Forecast Discussion Number 8</title>
+<description>Issued at 1100 AM AST Sun Jun 30 2024  <![CDATA[<pre>
+
+000
+WTNT42 KNHC 301445
+TCDAT2
+ 
+Hurricane Beryl Discussion Number   8
+NWS National Hurricane Center Miami FL       AL022024
+1100 AM AST Sun Jun 30 2024
+ 
+Data from the Air Force and NOAA Hurricane Hunters this morning
+indicate that Beryl continues to rapidly intensify.  Based on the
+data collected, the minimum pressure has fallen significantly to
+964 mb and the maximum wind speed is now up to 105 kt.  Although
+Beryl is still on the small side, the wind field is a little larger
+than previously noted with the tropical-storm-force winds estimated 
+to extend up to 100 n mi from the center and hurricane-force winds 
+up to 25 n mi from the eye.  Satellite images show that Beryl has a 
+classic major hurricane pattern with a clear and circular eye and 
+symmetric convective pattern surrounding it.
+ 
+Beryl continues to move swiftly westward at 18 kt steered by a 
+strong subtropical ridge to its north.  The hurricane has been 
+moving a little to the south of most of the model predictions over 
+the past day or two.  A continued quick west to west-northwest 
+motion is forecast during the next several days as the ridge remains 
+the primary steering feature.  This should take the core of Beryl 
+across the Windward Islands Monday morning and then across much the 
+Caribbean Sea during the following few days.  The NHC track forecast 
+has been nudged to the south of the previous prediction and lies 
+close to the various consensus aids.
+ 
+The major hurricane has rapidly intensified since it formed a
+couple of days ago, and given the continued conducive environmental
+conditions and compact inner core, it will likely strengthen some
+more through tonight.  Beryl is expected to be a very dangerous
+category 4 hurricane when it moves through Windward Islands.  The
+models show a gradual increase in shear when the system moves
+across the Caribbean Sea and that should cause Beryl's intensity to
+level off and then gradually weaken.  However, Beryl is expected to
+remain a significant hurricane through the next 5 days.  The
+intensity forecast is a little above the previous one and in good
+agreement with the HCCA and IVCN models.
+ 
+ 
+Key Messages:
+ 
+1. Beryl is expected to be an extremely dangerous Category 4 
+hurricane when it reaches the Windward Islands. This is a very 
+dangerous situation and residents in these areas should listen to 
+local government and emergency management officials for any 
+preparedness and/or evacuation orders. All preparations should be 
+rushed to completion today.
+ 
+2. Potentially catastrophic hurricane-force winds, a 
+life-threatening storm surge, and damaging waves are expected 
+when Beryl passes over portions of the Windward Islands with the 
+highest risk of the core in St. Vincent and the Grenadines, and 
+Grenada beginning early Monday morning.  Hurricane Warnings are in 
+effect for much of the Windward Islands.
+
+3. Heavy rainfall and localized flooding are expected across the
+Windward Islands through Monday.
+ 
+4. Beryl is expected to remain a powerful hurricane as it moves 
+across the Caribbean Sea later this week and interests in 
+Hispaniola, Jamaica, the Cayman Islands and the remainder of the 
+northwestern Caribbean should monitor its progress, There is large 
+forecast uncertainty  at days 4 and 5 and users should not focus on 
+the specific details of the track or intensity forecast.
+
+
+FORECAST POSITIONS AND MAX WINDS
+ 
+INIT  30/1500Z 10.7N  54.9W  105 KT 120 MPH
+ 12H  01/0000Z 11.2N  57.5W  120 KT 140 MPH
+ 24H  01/1200Z 12.1N  60.9W  120 KT 140 MPH
+ 36H  02/0000Z 13.3N  64.3W  115 KT 130 MPH
+ 48H  02/1200Z 14.6N  68.2W  115 KT 130 MPH
+ 60H  03/0000Z 15.6N  72.1W  110 KT 125 MPH
+ 72H  03/1200Z 16.4N  75.9W  105 KT 120 MPH
+ 96H  04/1200Z 17.8N  82.8W   95 KT 110 MPH
+120H  05/1200Z 19.2N  88.3W   75 KT  85 MPH...INLAND
+ 
+$$
+Forecaster Cangialosi
+ 
+</pre>]]></description>
+<pubDate>Sun, 30 Jun 2024 14:45:58 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCDAT2+shtml/301445.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCDAT2+shtml/301445.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Hurricane Beryl Wind Speed Probabilities Number 8</title>
+<description>Issued at 1500 UTC SUN JUN 30 2024                                              <![CDATA[<pre>
+
+000
+FONT12 KNHC 301445
+PWSAT2
+                                                                    
+HURRICANE BERYL WIND SPEED PROBABILITIES NUMBER   8                 
+NWS NATIONAL HURRICANE CENTER MIAMI FL       AL022024               
+1500 UTC SUN JUN 30 2024                                            
+                                                                    
+AT 1500Z THE CENTER OF HURRICANE BERYL WAS LOCATED NEAR LATITUDE    
+10.7 NORTH...LONGITUDE 54.9 WEST WITH MAXIMUM SUSTAINED WINDS NEAR  
+105 KTS...120 MPH...195 KM/H.                                       
+                                                                    
+Z INDICATES COORDINATED UNIVERSAL TIME (GREENWICH)                  
+   ATLANTIC STANDARD TIME (AST)...SUBTRACT 4 HOURS FROM Z TIME      
+   EASTERN  DAYLIGHT TIME (EDT)...SUBTRACT 4 HOURS FROM Z TIME      
+   CENTRAL  DAYLIGHT TIME (CDT)...SUBTRACT 5 HOURS FROM Z TIME      
+                                                                    
+WIND SPEED PROBABILITY TABLE FOR SPECIFIC LOCATIONS                 
+                                                                    
+CHANCES OF SUSTAINED (1-MINUTE AVERAGE) WIND SPEEDS OF AT LEAST     
+   ...34 KT (39 MPH... 63 KM/H)...                                  
+   ...50 KT (58 MPH... 93 KM/H)...                                  
+   ...64 KT (74 MPH...119 KM/H)...                                  
+FOR LOCATIONS AND TIME PERIODS DURING THE NEXT 5 DAYS               
+                                                                    
+PROBABILITIES FOR LOCATIONS ARE GIVEN AS OP(CP) WHERE               
+    OP  IS THE PROBABILITY OF THE EVENT BEGINNING DURING            
+        AN INDIVIDUAL TIME PERIOD (ONSET PROBABILITY)               
+   (CP) IS THE PROBABILITY OF THE EVENT OCCURRING BETWEEN           
+        12Z SUN AND THE FORECAST HOUR (CUMULATIVE PROBABILITY)      
+                                                                    
+PROBABILITIES ARE GIVEN IN PERCENT                                  
+X INDICATES PROBABILITIES LESS THAN 1 PERCENT                       
+PROBABILITIES FOR 34 KT AND 50 KT ARE SHOWN AT A GIVEN LOCATION WHEN
+THE 5-DAY CUMULATIVE PROBABILITY IS AT LEAST 3 PERCENT.             
+PROBABILITIES FOR 34...50...64 KT SHOWN WHEN THE 5-DAY              
+64-KT CUMULATIVE PROBABILITY IS AT LEAST 1 PERCENT.                 
+                                                                    
+                                                                    
+  - - - - WIND SPEED PROBABILITIES FOR SELECTED LOCATIONS - - - -   
+                                                                    
+               FROM    FROM    FROM    FROM    FROM    FROM    FROM 
+  TIME       12Z SUN 00Z MON 12Z MON 00Z TUE 12Z TUE 12Z WED 12Z THU
+PERIODS         TO      TO      TO      TO      TO      TO      TO  
+             00Z MON 12Z MON 00Z TUE 12Z TUE 12Z WED 12Z THU 12Z FRI
+                                                                    
+FORECAST HOUR    (12)   (24)    (36)    (48)    (72)    (96)   (120)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+LOCATION       KT                                                   
+                                                                    
+VERACRUZ MX    34  X   X( X)   X( X)   X( X)   X( X)   X( X)   3( 3)
+ 
+FRONTERA MX    34  X   X( X)   X( X)   X( X)   X( X)   X( X)   6( 6)
+ 
+MERIDA MX      34  X   X( X)   X( X)   X( X)   X( X)   X( X)  14(14)
+MERIDA MX      50  X   X( X)   X( X)   X( X)   X( X)   X( X)   4( 4)
+ 
+COZUMEL MX     34  X   X( X)   X( X)   X( X)   X( X)   8( 8)  27(35)
+COZUMEL MX     50  X   X( X)   X( X)   X( X)   X( X)   2( 2)  13(15)
+COZUMEL MX     64  X   X( X)   X( X)   X( X)   X( X)   1( 1)   5( 6)
+ 
+BELIZE CITY    34  X   X( X)   X( X)   X( X)   X( X)   4( 4)  25(29)
+BELIZE CITY    50  X   X( X)   X( X)   X( X)   X( X)   1( 1)  11(12)
+BELIZE CITY    64  X   X( X)   X( X)   X( X)   X( X)   X( X)   5( 5)
+ 
+PUERTO BARRIOS 34  X   X( X)   X( X)   X( X)   X( X)   2( 2)  10(12)
+PUERTO BARRIOS 50  X   X( X)   X( X)   X( X)   X( X)   X( X)   3( 3)
+PUERTO BARRIOS 64  X   X( X)   X( X)   X( X)   X( X)   X( X)   1( 1)
+ 
+GUANAJA        34  X   X( X)   X( X)   X( X)   X( X)  13(13)  20(33)
+GUANAJA        50  X   X( X)   X( X)   X( X)   X( X)   4( 4)  11(15)
+GUANAJA        64  X   X( X)   X( X)   X( X)   X( X)   2( 2)   6( 8)
+ 
+PUERTO CABEZAS 34  X   X( X)   X( X)   X( X)   X( X)   6( 6)   3( 9)
+ 
+SAN ANDRES     34  X   X( X)   X( X)   X( X)   X( X)   5( 5)   1( 6)
+ 
+PT GALLINAS    34  X   X( X)   X( X)   3( 3)  11(14)   X(14)   X(14)
+PT GALLINAS    50  X   X( X)   X( X)   X( X)   4( 4)   X( 4)   X( 4)
+PT GALLINAS    64  X   X( X)   X( X)   X( X)   2( 2)   X( 2)   X( 2)
+ 
+CURACAO        34  X   X( X)   2( 2)  11(13)   4(17)   X(17)   X(17)
+CURACAO        50  X   X( X)   X( X)   3( 3)   2( 5)   X( 5)   X( 5)
+CURACAO        64  X   X( X)   X( X)   1( 1)   1( 2)   X( 2)   X( 2)
+ 
+CP SAN ANTONIO 34  X   X( X)   X( X)   X( X)   X( X)   9( 9)  12(21)
+CP SAN ANTONIO 50  X   X( X)   X( X)   X( X)   X( X)   2( 2)   5( 7)
+CP SAN ANTONIO 64  X   X( X)   X( X)   X( X)   X( X)   1( 1)   3( 4)
+ 
+HAVANA         34  X   X( X)   X( X)   X( X)   X( X)   3( 3)   1( 4)
+ 
+ISLE OF PINES  34  X   X( X)   X( X)   X( X)   X( X)  13(13)   6(19)
+ISLE OF PINES  50  X   X( X)   X( X)   X( X)   X( X)   3( 3)   2( 5)
+ISLE OF PINES  64  X   X( X)   X( X)   X( X)   X( X)   1( 1)   1( 2)
+ 
+CIENFUEGOS     34  X   X( X)   X( X)   X( X)   X( X)  10(10)   1(11)
+ 
+CAMAGUEY       34  X   X( X)   X( X)   X( X)   1( 1)   4( 5)   1( 6)
+ 
+GUANTANAMO BAY 34  X   X( X)   X( X)   X( X)   7( 7)   2( 9)   X( 9)
+ 
+GRAND CAYMAN   34  X   X( X)   X( X)   X( X)   1( 1)  42(43)   6(49)
+GRAND CAYMAN   50  X   X( X)   X( X)   X( X)   X( X)  18(18)   4(22)
+GRAND CAYMAN   64  X   X( X)   X( X)   X( X)   X( X)   9( 9)   2(11)
+ 
+MONTEGO BAY    34  X   X( X)   X( X)   X( X)  23(23)  29(52)   X(52)
+MONTEGO BAY    50  X   X( X)   X( X)   X( X)   5( 5)  19(24)   X(24)
+MONTEGO BAY    64  X   X( X)   X( X)   X( X)   2( 2)  10(12)   X(12)
+ 
+KINGSTON       34  X   X( X)   X( X)   X( X)  42(42)  21(63)   X(63)
+KINGSTON       50  X   X( X)   X( X)   X( X)  16(16)  17(33)   X(33)
+KINGSTON       64  X   X( X)   X( X)   X( X)   6( 6)  11(17)   X(17)
+ 
+LES CAYES      34  X   X( X)   X( X)   X( X)  26(26)   1(27)   X(27)
+LES CAYES      50  X   X( X)   X( X)   X( X)   8( 8)   X( 8)   X( 8)
+LES CAYES      64  X   X( X)   X( X)   X( X)   3( 3)   X( 3)   X( 3)
+ 
+PORT-AU-PRINCE 34  X   X( X)   X( X)   1( 1)  28(29)   1(30)   X(30)
+PORT-AU-PRINCE 50  X   X( X)   X( X)   X( X)   7( 7)   X( 7)   X( 7)
+PORT-AU-PRINCE 64  X   X( X)   X( X)   X( X)   2( 2)   X( 2)   X( 2)
+ 
+CAPE BEATA     34  X   X( X)   X( X)   5( 5)  43(48)   X(48)   X(48)
+CAPE BEATA     50  X   X( X)   X( X)   X( X)  15(15)   X(15)   X(15)
+CAPE BEATA     64  X   X( X)   X( X)   X( X)   7( 7)   X( 7)   X( 7)
+ 
+PUERTO PLATA   34  X   X( X)   X( X)   1( 1)   7( 8)   1( 9)   X( 9)
+ 
+SANTO DOMINGO  34  X   X( X)   X( X)   5( 5)  12(17)   X(17)   X(17)
+ 
+PONCE PR       34  X   X( X)   2( 2)   8(10)   2(12)   X(12)   X(12)
+ 
+AGUADILLA PR   34  X   X( X)   X( X)   8( 8)   2(10)   X(10)   X(10)
+ 
+SAN JUAN PR    34  X   X( X)   1( 1)   3( 4)   X( 4)   X( 4)   X( 4)
+ 
+VIEQUES PR     34  X   X( X)   2( 2)   5( 7)   X( 7)   X( 7)   X( 7)
+ 
+SAINT THOMAS   34  X   X( X)   2( 2)   3( 5)   X( 5)   X( 5)   X( 5)
+ 
+SAINT CROIX    34  X   X( X)   3( 3)   5( 8)   X( 8)   X( 8)   X( 8)
+ 
+SAINT MAARTEN  34  X   X( X)   2( 2)   1( 3)   X( 3)   X( 3)   X( 3)
+ 
+SABA           34  X   X( X)   3( 3)   2( 5)   X( 5)   X( 5)   X( 5)
+ 
+ST EUSTATIUS   34  X   X( X)   4( 4)   1( 5)   X( 5)   X( 5)   X( 5)
+ 
+ST KITTS-NEVIS 34  X   X( X)   4( 4)   1( 5)   X( 5)   X( 5)   X( 5)
+ 
+ANTIGUA        34  X   1( 1)   2( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+GUADELOUPE     34  X   3( 3)   3( 6)   1( 7)   X( 7)   X( 7)   X( 7)
+ 
+AVES           34  X   2( 2)  20(22)   7(29)   X(29)   X(29)   X(29)
+AVES           50  X   X( X)   3( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+DOMINICA       34  X   5( 5)   8(13)   1(14)   X(14)   X(14)   X(14)
+ 
+MARTINIQUE     34  1   4( 5)   6(11)   X(11)   X(11)   X(11)   X(11)
+ 
+SAINT LUCIA    34  2  41(43)  16(59)   X(59)   X(59)   X(59)   X(59)
+SAINT LUCIA    50  X   6( 6)   6(12)   X(12)   X(12)   X(12)   X(12)
+SAINT LUCIA    64  X   2( 2)   1( 3)   X( 3)   X( 3)   X( 3)   X( 3)
+ 
+SAINT VINCENT  34  2  74(76)  14(90)   X(90)   X(90)   X(90)   X(90)
+SAINT VINCENT  50  X  29(29)  21(50)   X(50)   X(50)   X(50)   X(50)
+SAINT VINCENT  64  X   8( 8)  15(23)   X(23)   X(23)   X(23)   X(23)
+ 
+BARBADOS       34  2  68(70)   1(71)   X(71)   X(71)   X(71)   X(71)
+BARBADOS       50  1  15(16)   X(16)   X(16)   X(16)   X(16)   X(16)
+BARBADOS       64  X   4( 4)   X( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+GRENADA        34  1  76(77)  18(95)   X(95)   X(95)   X(95)   X(95)
+GRENADA        50  X  34(34)  42(76)   X(76)   X(76)   X(76)   X(76)
+GRENADA        64  X  14(14)  37(51)   X(51)   X(51)   X(51)   X(51)
+ 
+TRINIDADTOBAGO 34  2  77(79)   2(81)   X(81)   X(81)   X(81)   X(81)
+TRINIDADTOBAGO 50  X  39(39)   2(41)   X(41)   X(41)   X(41)   X(41)
+TRINIDADTOBAGO 64  X  15(15)   1(16)   X(16)   X(16)   X(16)   X(16)
+ 
+PORT OF SPAIN  34  1  15(16)   3(19)   X(19)   X(19)   X(19)   X(19)
+PORT OF SPAIN  50  X   3( 3)   1( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+JUANGRIEGO     34  X   2( 2)  13(15)   1(16)   X(16)   X(16)   X(16)
+JUANGRIEGO     50  X   X( X)   4( 4)   X( 4)   X( 4)   X( 4)   X( 4)
+ 
+$$                                                                  
+FORECASTER CANGIALOSI                                               
+</pre>]]></description>
+<pubDate>Sun, 30 Jun 2024 14:45:26 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT2+shtml/301445.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIAPWSAT2+shtml/301445.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Hurricane Beryl Update Statement</title>
+<description>Issued at 1135 AM AST Sun Jun 30 2024  <![CDATA[<pre>
+
+000
+WTNT62 KNHC 301536
+TCUAT2
+ 
+Hurricane Beryl Tropical Cyclone Update
+NWS National Hurricane Center Miami FL       AL022024
+1135 AM AST Sun Jun 30 2024
+
+...RECONNAISSANCE AIRCRAFT FIND BERYL NOW AN EXTREMELY DANGEROUS 
+CATEGORY 4 HURRICANE...
+...LIFE-THREATENING WINDS AND STORM SURGE EXPECTED IN THE WINDWARD 
+ISLANDS BEGINNING EARLY MONDAY MORNING...
+ 
+NOAA and Air Force Reserve hurricane hunter aircraft data indicate
+that Beryl has strengthened to an extremely dangerous category 4 
+hurricane. The maximum sustained winds are estimated to be 130 mph 
+(215 km/h) with higher gusts.
+ 
+ 
+SUMMARY OF 1135 AM AST...1535 UTC...INFORMATION
+-----------------------------------------------
+LOCATION...10.8N 54.9W
+ABOUT 350 MI...565 KM ESE OF BARBADOS
+ABOUT 460 MI...740 KM E OF GRENADA
+MAXIMUM SUSTAINED WINDS...130 MPH...215 KM/H
+PRESENT MOVEMENT...W OR 275 DEGREES AT 21 MPH...33 KM/H
+MINIMUM CENTRAL PRESSURE...962 MB...28.41 INCHES
+ 
+$$
+Forecaster Cangialosi
+ 
+ 
+</pre>]]></description>
+<pubDate>Sun, 30 Jun 2024 15:37:01 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIATCUAT2+shtml/301536.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIATCUAT2+shtml/301536.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Hurricane Beryl Graphics</title>
+<description>
+<![CDATA[
+<a href="https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/144818.shtml?cone">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT02/AL022024_5day_cone_with_line_and_wind_sm2.png"
+alt="Hurricane Beryl 5-Day Uncertainty Track Image"
+width="500" height="400" /></a><br/>
+5-Day Uncertainty Track last updated Sun, 30 Jun 2024 14:48:18 GMT
+<br /><br /><a href="https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/144818.shtml?tswind120">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT02/AL022024_wind_probs_34_F120_sm2.png"
+alt="Hurricane Beryl 34-Knot Wind Speed Probabilities"
+width="500" height="400" /> </a><br/>
+Wind Speed Probabilities last updated Sun, 30 Jun 2024 15:23:00 GMT
+]]>
+</description>
+<pubDate>Sun, 30 Jun 2024 14:48:18 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/144818.shtml?cone</link>
+<guid>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/144818.shtml?cone</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+</channel>
+</rss>
