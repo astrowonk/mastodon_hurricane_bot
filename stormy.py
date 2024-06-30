@@ -53,7 +53,7 @@ class Summary:
 class Stormy:
     def __init__(self, data_list):
         """Inited with a list of 6 dictionaries created by process_item and make_list_of_storms"""
-        assert len(data_list) == 6, 'data set must be length 6'
+        # assert len(data_list) == 6, 'data set must be length 6'
         self.data_list = data_list
         self.process_data()
         self.set_storm_id()
@@ -74,13 +74,6 @@ class Stormy:
         self.data_for_post['summary'] = (
             html2text(self.data_list[0]['description']).replace('\n', ' ').strip()
         )
-        soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
-        self.graphic_url = soup.find('img')['src']
-        pattern = r'_sm2\.png$'
-        # change url so we can not use the small image, but a higher resolution one.
-        self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
-        self.make_graphic_data()
-        self.data_for_post['graphic_link'] = soup.find('a')['href']
 
         self.storm_code = re.search(r'\((.+)\)', self.data_for_post['summary_title']).group(1)
 
@@ -90,7 +83,28 @@ class Stormy:
         self.data_for_post['storm_type'] = rem.group(1)
         self.data_for_post['storm_name'] = rem.group(2).strip()
 
+        if self.data_list[5]['title'].endswith('Update Statement'):
+            self.data_for_post['update_link'] = self.data_list[5]['link']
+            self.data_for_post['update_title'] = self.data_list[5]['title']
+            return
+        soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
+        img_soup = soup.find('img')
+
+        self.graphic_url = img_soup['src']
+        self.data_for_post['graphic_link'] = soup.find('a')['href']
+
+        self.data_for_post['graphic_link'] = None
+        self.data_for_post['graphic_data'] = None
+
+        pattern = r'_sm2\.png$'
+        # change url so we can not use the small image, but a higher resolution one.
+        if self.graphic_url:
+            self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
+        self.make_graphic_data()
+
     def make_graphic_data(self):
+        if not self.graphic_url:
+            return
         r = requests.get(
             self.graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
         )
@@ -107,7 +121,7 @@ class Stormy:
         # Use re.sub() to remove the ellipsis and replace with the captured text and a single period
         pattern = r'\.\.\.(.*?)\.\.\.'
         cleaner_summary = re.sub(pattern, r'\1.', self.data_for_post['summary'])
-
+        title = ''
         sentences = cleaner_summary.split('. ')
         self.non_headline = '. '.join(sentences[2:])
         hashtag = (
@@ -117,13 +131,22 @@ class Stormy:
             else ''
         )
         ### F String
+        if self.data_for_post.get('update_link'):
+            links = f"Update: {self.data_for_post['update_link']}"
+            title = self.data_for_post['update_title']
+        else:
+            links = (
+                f"Track: {self.data_for_post['graphic_link']}\n"
+                f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
+            )
+
         self.post_content = (
-            f"{sentences[0].strip()}.\n\n"
-            f"{sentences[1].strip()}.\n\n"
-            f"{self.non_headline}\n\n"
-            f"Track: {self.data_for_post['graphic_link']}\n"
-            f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
-            f"{hashtag}"
+            f'{title}\n\n'
+            f'{sentences[0].strip()}.\n\n'
+            f'{sentences[1].strip()}.\n\n'
+            f'{self.non_headline}\n\n'
+            f'{links}'
+            f'{hashtag}'
         )
 
     def make_alt_text(self):
@@ -148,12 +171,15 @@ class Stormy:
                 return False, 'Failed to post due to duplicate image data'
 
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
-        med_dict = m.media_post(
-            self.data_for_post['graphic_data'],
-            mime_type='image/png',
-            description=self.make_alt_text(),
-        )
-        out = m.status_post(self.post_content, media_ids=med_dict)
+        if self.data_for_post.get('graphic_data'):
+            med_dict = m.media_post(
+                self.data_for_post['graphic_data'],
+                mime_type='image/png',
+                description=self.make_alt_text(),
+            )
+            out = m.status_post(self.post_content, media_ids=med_dict)
+        else:
+            out = m.status(self.post_content)
         return True, (
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
         )

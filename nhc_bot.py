@@ -87,7 +87,21 @@ def check_storm_guid_change(data_for_post):
 
 def make_list_of_storms(out):
     """Since there can be multiple storms, find the summary and then the next 5 entries for each."""
-    return [out[i : i + 6] for i, x in enumerate(out) if x['title'].startswith('Summary')]
+    new_out = []
+    new_storm = []
+    for item in out:
+        print(len(new_storm))
+        if item['title'].startswith('Summary'):
+            if new_storm:
+                new_out.append(new_storm)
+                new_storm = []
+            new_storm.append(item)
+        else:
+            new_storm.append(item)
+    # append final storm
+    new_out.append(new_storm)
+
+    return new_out
 
 
 if __name__ == '__main__':
