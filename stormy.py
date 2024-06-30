@@ -86,21 +86,22 @@ class Stormy:
         if self.data_list[5]['title'].endswith('Update Statement'):
             self.data_for_post['update_link'] = self.data_list[5]['link']
             self.data_for_post['update_title'] = self.data_list[5]['title']
-            return
-        soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
-        img_soup = soup.find('img')
+            soup = BeautifulSoup(self.data_list[6]['description'], 'html.parser')
+            img_soup = soup.find('img')
 
-        self.graphic_url = img_soup['src']
-        self.data_for_post['graphic_link'] = soup.find('a')['href']
+            self.graphic_url = img_soup['src']
+            self.data_for_post['graphic_link'] = soup.find('a')['href']
 
-        self.data_for_post['graphic_link'] = None
-        self.data_for_post['graphic_data'] = None
+            self.data_for_post['graphic_link'] = None
+            self.data_for_post['graphic_data'] = None
 
-        pattern = r'_sm2\.png$'
-        # change url so we can not use the small image, but a higher resolution one.
-        if self.graphic_url:
-            self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
-        self.make_graphic_data()
+            pattern = r'_sm2\.png$'
+            # change url so we can not use the small image, but a higher resolution one.
+            if self.graphic_url:
+                self.graphic_url = re.sub(
+                    pattern=pattern, repl='.png', string=self.graphic_url
+                )
+            self.make_graphic_data()
 
     def make_graphic_data(self):
         if not self.graphic_url:
@@ -182,7 +183,7 @@ class Stormy:
             )
             out = m.status_post(self.post_content, media_ids=med_dict)
         else:
-            out = m.status(self.post_content)
+            out = m.status_post(self.post_content)
         return True, (
             f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
         )
