@@ -74,7 +74,6 @@ class Stormy:
         self.data_for_post['summary'] = (
             html2text(self.data_list[0]['description']).replace('\n', ' ').strip()
         )
-
         self.storm_code = re.search(r'\((.+)\)', self.data_for_post['summary_title']).group(1)
 
         pattern = r'(.+) (\S+) Public Advisory Number (.+)$'

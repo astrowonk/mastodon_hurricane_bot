@@ -137,8 +137,6 @@ if __name__ == '__main__':
             #     else:
             #         print_to_slack('Only 1 storm, no summary')
             for raw_data in storm_list:
-                graphic_hash = get_summary_data(raw_data).get('graphic_hash')
-
                 s = Stormy(raw_data)
 
                 data_for_post = s.data_for_post.copy()
@@ -146,8 +144,7 @@ if __name__ == '__main__':
                     if not args.no_post:
                         print_to_slack('Posting to Mastodon.')
                         print_to_slack(f"Guid for storm {data_for_post['summary_guid']}")
-                        old_summary_data = get_summary_data(out)
-
+                        graphic_hash = get_storm_data(s.data_for_post).get('graphic_hash')
                         p_bool, p_status = s.post_to_mastodon(verify_image_hash=graphic_hash)
                         print_to_slack(p_status)
                         if p_bool:
