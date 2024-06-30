@@ -99,6 +99,8 @@ class Stormy:
         self.data_for_post['graphic_hash'] = hashlib.md5(
             self.data_for_post['graphic_data']
         ).hexdigest()
+        print_to_slack('Graphic headers')
+        print_to_slack(self.data_for_post['graphic_headers'])
 
     def make_post_content(self):
         """with the data dictionary, create the text for the post."""
