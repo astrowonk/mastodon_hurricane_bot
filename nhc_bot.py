@@ -72,14 +72,19 @@ def check_summary_guid_change(out):
     return old_summary_data.get('guid') != guid
 
 
-def check_storm_guid_change(data_for_post):
+def get_storm_data(data_for_post):
     storm_id = data_for_post['storm_id']
+
     try:
         with open(f'{storm_id}_full_post_data.json', 'r') as f:
             old_post_data = json.load(f)
     except:
         old_post_data = {}
+    return old_post_data
 
+
+def check_storm_guid_change(data_for_post):
+    old_post_data = get_storm_data(data_for_post)
     return (old_post_data.get('summary_guid') != data_for_post['summary_guid']) and (
         old_post_data.get('summary').strip() != data_for_post['summary'].strip()
     )
@@ -122,7 +127,7 @@ if __name__ == '__main__':
             out = process_url(CURRENT_URL)
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
-            if len(storm_list) > 1 and check_summary_guid_change(out[0]):
+            if len(storm_list) > 1 and check_summary_guid_change(out[0]) and not args.no_post:
                 theSummary = Summary(out[0])
                 theSummary.post_to_mastodon()
                 json_write(out[0], 'summary.json')
@@ -166,3 +171,4 @@ if __name__ == '__main__':
     except Exception as e:
         tb = ''.join(traceback.format_exception(e))
         print_to_slack(f'Error in Huricane bot: \n{tb}', error=True)
+        print_to_slack(s.post_content)
