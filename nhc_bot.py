@@ -1,24 +1,17 @@
 from lxml import etree
 import requests
 from mastodon import Mastodon
-from config import API_TOKEN, SLACK_URL, SLACK_ERROR_URL
+from config import API_TOKEN
 import argparse
 import json
 import datetime
 from stormy import Stormy, Summary
 import traceback
+from utils import print_to_slack
 
 VERIFY = False
 
 CURRENT_URL = 'https://www.nhc.noaa.gov/index-at.xml'
-
-
-def print_to_slack(txt, error=False):
-    data = {'text': txt}
-    if not error:
-        requests.post(url=SLACK_URL, json=data)
-    else:
-        requests.post(url=SLACK_ERROR_URL, json=data)
 
 
 def process_item(item):

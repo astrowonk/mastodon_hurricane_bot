@@ -6,6 +6,8 @@ from config import API_TOKEN
 from mastodon import Mastodon
 import hashlib
 from time import sleep
+from utils import print_to_slack
+
 
 VERIFY = True
 
@@ -130,7 +132,7 @@ class Stormy:
             attempts = 1
             while attempts < 3:
                 if verify_image_hash == self.data_for_post['graphic_hash']:
-                    print(
+                    print_to_slack(
                         f'Image data is identical with hash {verify_image_hash}. Sleeping and retrying. Attempt {attempts}'
                     )
                     sleep(60)
