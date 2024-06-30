@@ -154,7 +154,7 @@ class Stormy:
         """Use data to post to Mastodon instance"""
         if verify_image_hash:
             print_to_slack(
-                f"Checking {verify_image_hash} vs {self.data_for_post['graphic_hash']} "
+                f"Checking image hash {verify_image_hash} vs {self.data_for_post['graphic_hash']} "
             )
             attempts = 1
             while attempts < 3:
