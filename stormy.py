@@ -91,9 +91,11 @@ class Stormy:
         self.data_for_post['storm_name'] = rem.group(2).strip()
 
     def make_graphic_data(self):
-        self.data_for_post['graphic_data'] = requests.get(
+        r = requests.get(
             self.graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
-        ).content
+        )
+        self.data_for_post['graphic_data'] = r.content
+        self.data_for_post['graphic_headers'] = r.headers
         self.data_for_post['graphic_hash'] = hashlib.md5(
             self.data_for_post['graphic_data']
         ).hexdigest()
