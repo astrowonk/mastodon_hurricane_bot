@@ -1,6 +1,6 @@
 from nhc_bot import make_list_of_storms, process_url
 import unittest
-from stormy import Stormy
+from stormy import Stormy, Summary
 
 
 class TestFunctions(unittest.TestCase):
@@ -24,6 +24,9 @@ class TestFunctions(unittest.TestCase):
         s = Stormy(thelist[0])
         self.assertEqual(s.storm_code, 'AT1/AL162023')
         self.assertEqual(s.post_content[:7], 'OPHELIA')
+
+        thesummary = Summary(out[0])
+        self.assertEqual(thesummary.summary_dict['title'], 'Atlantic Tropical Weather Outlook')
 
     def test_potential_storm(self):
         """This should be broken up into more tests; something is better than nothing."""
