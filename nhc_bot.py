@@ -90,6 +90,8 @@ def make_list_of_storms(out):
     new_out = []
     new_storm = []
     for item in out:
+        if item['title'].endswith('Weather Outlook'):
+            continue
         print(len(new_storm))
         if item['title'].startswith('Summary'):
             if new_storm:

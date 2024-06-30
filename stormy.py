@@ -133,7 +133,7 @@ class Stormy:
         ### F String
         if self.data_for_post.get('update_link'):
             links = f"Update: {self.data_for_post['update_link']}"
-            title = self.data_for_post['update_title']
+            title = self.data_for_post['update_title'] + '\n\n'
         else:
             links = (
                 f"Track: {self.data_for_post['graphic_link']}\n"
@@ -141,7 +141,7 @@ class Stormy:
             )
 
         self.post_content = (
-            f'{title}\n\n'
+            f'{title}'
             f'{sentences[0].strip()}.\n\n'
             f'{sentences[1].strip()}.\n\n'
             f'{self.non_headline}\n\n'

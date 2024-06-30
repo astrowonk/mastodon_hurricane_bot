@@ -17,7 +17,9 @@ class TestFunctions(unittest.TestCase):
 
         thelist = make_list_of_storms(out)
         print(thelist)
-        self.assertEqual(len(thelist[0]), 6)
+        self.assertEqual(len(thelist[0]), 7)
+
+        self.assertEqual(len(thelist[1]), 6)
 
         s = Stormy(thelist[0])
         self.assertEqual(s.storm_code, 'AT1/AL162023')
@@ -32,7 +34,7 @@ class TestFunctions(unittest.TestCase):
 
         thelist = make_list_of_storms(out)
         print(thelist)
-        self.assertEqual(len(thelist[0]), 6)
+        self.assertEqual(len(thelist[0]), 9)
 
         s = Stormy(thelist[0])
         self.assertEqual(s.storm_code, 'AT1/AL012024')
