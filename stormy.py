@@ -131,7 +131,7 @@ class Stormy:
         )
         ### F String
         if self.data_for_post.get('update_link'):
-            links = f"Update: {self.data_for_post['update_link']}"
+            links = f"Update: {self.data_for_post['update_link']}\n\n"
             title = self.data_for_post['update_title'] + '\n\n'
         else:
             links = (
