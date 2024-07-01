@@ -51,10 +51,11 @@ class Summary:
 
 
 class Stormy:
-    def __init__(self, data_list):
+    def __init__(self, data_list, use_update=False):
         """Inited with a list of 6 dictionaries created by process_item and make_list_of_storms"""
         # assert len(data_list) == 6, 'data set must be length 6'
         self.data_list = data_list
+        self.use_update = use_update
         self.process_data()
         self.set_storm_id()
         self.make_post_content()
@@ -83,8 +84,9 @@ class Stormy:
         self.data_for_post['storm_name'] = rem.group(2).strip()
 
         if self.data_list[5]['title'].endswith('Update Statement'):
-            self.data_for_post['update_link'] = self.data_list[5]['link']
-            self.data_for_post['update_title'] = self.data_list[5]['title']
+            if self.use_update:
+                self.data_for_post['update_link'] = self.data_list[5]['link']
+                self.data_for_post['update_title'] = self.data_list[5]['title']
             soup = BeautifulSoup(self.data_list[6]['description'], 'html.parser')
         else:
             soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
