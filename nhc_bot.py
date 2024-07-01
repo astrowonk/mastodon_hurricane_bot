@@ -87,8 +87,8 @@ def check_storm_guid_change(data_for_post):
     old_post_data = get_storm_data(data_for_post)
     # guid is unreliable
 
-    summary_bool = old_post_data.get('summary') != data_for_post['summary']
-    guid_bool = old_post_data.get('summary_guid') != data_for_post('summary_guid')
+    summary_bool = old_post_data.get('summary') != data_for_post.get('summary')
+    guid_bool = old_post_data.get('summary_guid') != data_for_post.get('summary_guid')
     print_to_slack(f'New summary bool test is {summary_bool}. (Guid test is {guid_bool})')
     return summary_bool
 
