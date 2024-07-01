@@ -85,9 +85,12 @@ def get_storm_data(data_for_post):
 
 def check_storm_guid_change(data_for_post):
     old_post_data = get_storm_data(data_for_post)
-    return (old_post_data.get('summary_guid') != data_for_post['summary_guid']) and (
-        old_post_data.get('summary') != data_for_post['summary']
-    )
+    # guid is unreliable
+
+    summary_bool = old_post_data.get('summary') != data_for_post['summary']
+    guid_bool = old_post_data.get('summary_guid') != data_for_post('summary_guid')
+    print_to_slack(f'New summary bool test is {summary_bool}. (Guid test is {guid_bool})')
+    return summary_bool
 
 
 def make_list_of_storms(out):
