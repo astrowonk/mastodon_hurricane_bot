@@ -154,10 +154,13 @@ class Stormy:
         """create alt text for png"""
         return '\n'.join([self.data_for_post['summary_title'], self.non_headline])
 
+    def should_check_image(self, verify_image_hash):
+        return verify_image_hash and not self.data_for_post.get('update_title')
+
     def post_to_mastodon(self, verify_image_hash=None):
         """Use data to post to Mastodon instance"""
         use_image = True
-        if verify_image_hash and not self.data_for_post.get('update_title'):
+        if self.should_check_image(verify_image_hash):
             print_to_slack(
                 f"Checking image hash {verify_image_hash} vs {self.data_for_post['graphic_hash']} "
             )
