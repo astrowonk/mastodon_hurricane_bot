@@ -171,4 +171,4 @@ if __name__ == '__main__':
     except Exception as e:
         tb = ''.join(traceback.format_exception(e))
         print_to_slack(f'Error in Huricane bot: \n{tb}', error=True)
-        print_to_slack(s.post_content)
+        print_to_slack(s.post_content, error=True)
