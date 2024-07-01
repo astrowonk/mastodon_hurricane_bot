@@ -175,7 +175,9 @@ class Stormy:
             if verify_image_hash == self.data_for_post['graphic_hash']:
                 return False, 'Failed to post due to duplicate image data'
         else:
-            print_to_slack('This appears to be an update. No image.')
+            print_to_slack(
+                f'This appears to be an update - {self.data_for_post.get("update_title")} No image.'
+            )
             use_image = False
 
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
