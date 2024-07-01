@@ -160,7 +160,12 @@ class Stormy:
     def post_to_mastodon(self, verify_image_hash=None):
         """Use data to post to Mastodon instance"""
         use_image = True
-        if self.should_check_image(verify_image_hash):
+        if self.data_for_post.get('update_title'):
+            print_to_slack(
+                f'This appears to be an update - {self.data_for_post.get("update_title")} No image.'
+            )
+            use_image = False
+        elif verify_image_hash:
             print_to_slack(
                 f"Checking image hash {verify_image_hash} vs {self.data_for_post['graphic_hash']} "
             )
@@ -178,10 +183,7 @@ class Stormy:
             if verify_image_hash == self.data_for_post['graphic_hash']:
                 return False, 'Failed to post due to duplicate image data'
         else:
-            print_to_slack(
-                f'This appears to be an update - {self.data_for_post.get("update_title")} No image.'
-            )
-            use_image = False
+            print_to_slack('Image verification disabled, no hash to check')
 
         m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
         if self.data_for_post.get('graphic_data') and use_image:
