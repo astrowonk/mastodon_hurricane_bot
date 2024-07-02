@@ -8,7 +8,8 @@ There are a few functions in the `nhc_bot.py` script that parse the feed into st
 
 The `Stormy` class then takes a list of dictionaries for one storm, and generates text, links, and images for a Mastodon post.
 
-Some somewhat messy condition logic is needed to figure out "Is this an update?." The main script first checks the `etag` of the rss feed itself,  from the http headers. If it has changed, the feed is parsed into storm lists and each `Stormy` instance is checked against the last post information (written to JSON), to see if the summary text changed. 
+Some somewhat messy condition logic is needed to figure out if an update has occured and if a new post should be made. The main script first checks the `etag` of the rss feed itself, from the http headers. If the `etag` has changed, the feed is parsed into storm lists and each `Stormy` instance for each storm is checked against the last posted information for that storm (written to JSON), to see if the summary text changed. 
 
-Finally, before posting, a hash of the image bytes is checked against the hash of the last posted track image, since sometimes the image data lags behind the RSS feed, and I don't want to post a 2PM image with the 5PM update.
+Finally, before posting, a hash of the image bytes is also checked against the hash of the last posted track image, since sometimes the image data lags behind the RSS feed, and I don't want to post a 2PM image with the 5PM update.
 
+The main script runs as a cron job on a Digital Ocean droplet.
