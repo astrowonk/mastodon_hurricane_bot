@@ -4,7 +4,7 @@
 
 This grabs the [NHC Atlantic RSS Feed](https://www.nhc.noaa.gov/aboutrss.shtml), specifically "Atlantic Basin Tropical Cyclones" from `https://www.nhc.noaa.gov/index-at.xml` and generates automated posts to a Mastodon bot with this data.
 
-There are a few functions in the `nhc_bot.py` script that parse the feed into storm-specific lists of 6-7 items per storm.
+There are a few functions in the `nhc_bot.py` script that parse the feed into storm-specific lists of 6-7 items per storm, using `lxml`.
 
 The `Stormy` class then takes a list of dictionaries for one storm, and generates text, links, and images for a Mastodon post.
 
