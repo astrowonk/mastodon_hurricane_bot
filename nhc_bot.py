@@ -149,11 +149,13 @@ if __name__ == '__main__':
                         print_to_slack(f"Guid for storm {data_for_post['summary_guid']}")
                         graphic_hash = get_storm_data(s.data_for_post).get('graphic_hash')
                         p_bool, p_status = s.post_to_mastodon(verify_image_hash=graphic_hash)
-                        print_to_slack(p_status)
                         if p_bool:
+                            print_to_slack(p_status)
                             del data_for_post['graphic_data']
                             storm_id = data_for_post['storm_id']
                             json_write(data_for_post, f'{storm_id}_full_post_data.json')
+                        else:
+                            print_to_slack(p_status, error=True)
                     else:
                         print_to_slack(
                             f'Posting disabled. Sending post content to log. Length: {len(s.post_content)}'
