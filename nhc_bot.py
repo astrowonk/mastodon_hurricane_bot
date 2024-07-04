@@ -130,17 +130,8 @@ if __name__ == '__main__':
             out = process_url(CURRENT_URL)
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
-            # if len(storm_list) > 1 and check_summary_guid_change(out[0]) and not args.no_post:
-            #     theSummary = Summary(out[0])
-            #     theSummary.post_to_mastodon()
-            #     json_write(out[0], 'summary.json')
-            # else:
-            #     if not check_summary_guid_change(out[0]):
-            #         print_to_slack('Guid for summary unchanged, no post of summary image.')
-            #     else:
-            #         print_to_slack('Only 1 storm, no summary')
-            for raw_data in storm_list:
-                s = Stormy(raw_data)
+            for storm_data in storm_list:
+                s = Stormy(storm_data)
 
                 data_for_post = s.data_for_post.copy()
                 if check_storm_guid_change(s.data_for_post) or args.force_update:

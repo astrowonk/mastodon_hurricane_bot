@@ -47,4 +47,13 @@ class TestFunctions(unittest.TestCase):
         # no hashtag
         self.assertEqual(s.post_content.split('\n\n')[-1], '')
 
-    # self.assertEqual(s.post_content[:7], "One")
+    def test_update_storm(self):
+        with open('weird_xml_update_2_storms.xml', 'rb') as f:
+            some_bytes = f.read()
+
+        out = process_url(text=some_bytes)
+        list_of_storms = make_list_of_storms(out)
+        s = Stormy(list_of_storms[0], use_update=True)
+        self.assertTrue(s.post_content.startswith('Hurricane Beryl Update Statement'))
+        s = Stormy(list_of_storms[0], use_update=False)
+        self.assertTrue(s.post_content.startswith('EYEWALL OF EXTREMELY DANGEROUS CATEGORY 4'))
