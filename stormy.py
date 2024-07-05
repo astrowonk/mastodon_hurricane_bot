@@ -6,8 +6,14 @@ from config import API_TOKEN
 from mastodon import Mastodon
 import hashlib
 from time import sleep
-from utils import print_to_slack
-
+from utils import (
+    print_to_slack,
+    json_write,
+    write_new_status_data,
+    get_storm_data,
+    check_storm_guid_change,
+)
+import datetime
 
 VERIFY = True
 
@@ -149,6 +155,34 @@ class Stormy:
             f'{links}'
             f'{hashtag}'
         )
+
+    def run(self, force_update=False, no_post=False):
+        old_data = get_storm_data(self.data_for_post)
+        if check_storm_guid_change(self.data_for_post) or force_update:
+            if not no_post:
+                print_to_slack('Posting to Mastodon.')
+                print_to_slack(f"Guid for storm {self.data_for_post['summary_guid']}")
+                p_bool, p_status = self.post_to_mastodon(
+                    verify_image_hash=old_data.get('graphic_hash')
+                )
+                if p_bool:
+                    print_to_slack(p_status)
+                    del self.data_for_post['graphic_data']
+                    storm_id = self.data_for_post['storm_id']
+                    json_write(self.data_for_post, f'{storm_id}_full_post_data.json')
+                else:
+                    print_to_slack(p_status, error=True)
+            else:
+                print_to_slack(
+                    f'Posting disabled. Sending post content to log. Length: {len(self.post_content)}'
+                )
+                print_to_slack(self.post_content)
+
+        else:
+            print_to_slack(
+                f"Guid for storm {self.data_for_post['storm_id']} unchanged at {datetime.datetime.now().isoformat()}"
+            )
+            print_to_slack('No posting to Mastodon')
 
     def make_alt_text(self):
         """create alt text for png"""
