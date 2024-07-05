@@ -5,8 +5,9 @@ import os
 
 
 def print_to_slack(txt, error=False):
-    if os.environ.get('NO_SLACK_PRINT'):
+    if os.environ.get('NO_SLACK_POST'):
         print(txt)
+        return
     data = {'text': txt}
     if not error:
         requests.post(url=SLACK_URL, json=data)
