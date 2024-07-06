@@ -180,7 +180,7 @@ class Stormy:
 
         else:
             print_to_slack(
-                f"Guid for storm {self.data_for_post['storm_id']} unchanged at {datetime.datetime.now().isoformat()}"
+                f"Summary for storm {self.data_for_post['storm_id']} unchanged at {datetime.datetime.now().isoformat()}"
             )
             print_to_slack('No posting to Mastodon')
 
