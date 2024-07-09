@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:georss="http://www.georss.org/georss"
+ xmlns:gml="http://www.opengis.net/gml"
+ xmlns:nhc="https://www.nhc.noaa.gov">
+<channel>
+<pubDate>Tue, 09 Jul 2024 11:14:51 GMT</pubDate>
+<title>NHC Atlantic</title>
+<description>Active tropical cyclones in the Atlantic, Caribbean, and the Gulf of Mexico</description>
+<link>https://www.nhc.noaa.gov/</link>
+<copyright>none</copyright>
+<managingEditor>nhcwebmaster@noaa.gov (NHC Webmaster)</managingEditor>
+<language>en-us</language>
+<webMaster>nhcwebmaster@noaa.gov (NHC Webmaster)</webMaster>
+<image>
+<url>https://www.nhc.noaa.gov/gifs/xml_logo_nhc.gif</url>
+<link>https://www.nhc.noaa.gov/</link>
+<title>NHC Atlantic</title>
+<description>NOAA logo</description>
+<width>95</width>
+<height>45</height>
+</image>
+<item>
+<title>Atlantic Tropical Weather Outlook</title>
+<description>
+<![CDATA[
+<br/>
+000<br/>
+ABNT20 KNHC 090500<br/>
+TWOAT <br/>
+<br/>
+Tropical Weather Outlook<br/>
+NWS National Hurricane Center Miami FL<br/>
+200 AM EDT Tue Jul 9 2024<br/>
+<br/>
+For the North Atlantic...Caribbean Sea and the Gulf of Mexico:<br/>
+<br/>
+Active Systems: <br/>
+The Weather Prediction Center is issuing advisories on Tropical <br/>
+Depression Beryl, located inland over southwestern Arkansas.<br/>
+<br/>
+Tropical cyclone formation is not expected during the next 7 days.<br/>
+<br/>
+$$<br/>
+Forecaster Cangialosi<br/>
+]]>
+</description>
+<pubDate>Tue, 09 Jul 2024 05:00:49 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/gtwo.php?basin=atlc</link>
+<guid>https://www.nhc.noaa.gov/gtwo.php?basin=atlc&amp;202407090500</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Depression Beryl Public Advisory Number 43</title>
+<description><![CDATA[The NHC has issued its final advisory on this system.  Public Advisories from the <a href="http://www.wpc.ncep.noaa.gov">Weather Prediction Center</a> will provide updates as  long as the system remains a flood threat. Issued at 400 AM CDT Tue Jul 09 2024 ]]>
+</description>
+<pubDate>Tue, 09 Jul 2024 08:45:42 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/text/refresh/MIAWPCAT2+shtml/090845.shtml</link>
+<guid>https://www.nhc.noaa.gov/text/refresh/MIAWPCAT2+shtml/090845.shtml</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+<item>
+<title>Tropical Depression Beryl Graphics</title>
+<description>
+<![CDATA[
+<a href="https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/104403.shtml?cone">
+<img src="https://www.nhc.noaa.gov/storm_graphics/AT02/AL022024_5day_cone_with_line_and_wind_sm2.png"
+alt="Tropical Depression Beryl 5-Day Uncertainty Track Image"
+width="500" height="400" /></a><br/>
+5-Day Uncertainty Track last updated LATEST_W5_TIMESTAMP
+]]>
+</description>
+<pubDate>Tue, 09 Jul 2024 08:45:42 GMT</pubDate>
+<link>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/104403.shtml?cone</link>
+<guid>https://www.nhc.noaa.gov/refresh/graphics_at2+shtml/104403.shtml?cone</guid>
+<author>nhcwebmaster@noaa.gov (NHC Webmaster)</author>
+</item>
+</channel>
+</rss>

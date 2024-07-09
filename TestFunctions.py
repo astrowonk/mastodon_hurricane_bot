@@ -57,3 +57,10 @@ class TestFunctions(unittest.TestCase):
         self.assertTrue(s.post_content.startswith('Hurricane Beryl Update Statement'))
         s = Stormy(list_of_storms[0], use_update=False)
         self.assertTrue(s.post_content.startswith('EYEWALL OF EXTREMELY DANGEROUS CATEGORY 4'))
+
+    def test_no_storm(self):
+        with open('no_storm.xml', 'rb') as f:
+            some_bytes = f.read()
+        out = process_url(text=some_bytes)
+        list_of_storms = make_list_of_storms(out)
+        self.assertEqual(len(list_of_storms), 0)

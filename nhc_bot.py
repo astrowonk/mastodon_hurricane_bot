@@ -59,10 +59,13 @@ def make_list_of_storms(out):
                 new_out.append(new_storm)
                 new_storm = []
             new_storm.append(item)
+        elif not new_storm:
+            continue
         else:
             new_storm.append(item)
-    # append final storm
-    new_out.append(new_storm)
+    # append final storm if it exists
+    if new_storm:
+        new_out.append(new_storm)
 
     return new_out
 
@@ -84,7 +87,7 @@ if __name__ == '__main__':
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
             for storm_data in storm_list:
-                s = Stormy(storm_data,use_update=True)
+                s = Stormy(storm_data, use_update=True)
 
                 s.run(args.force_update, args.no_post)
         else:
