@@ -87,9 +87,13 @@ if __name__ == '__main__':
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
             for storm_data in storm_list:
-                s = Stormy(storm_data, use_update=True)
+                try:
+                    s = Stormy(storm_data, use_update=True)
 
-                s.run(args.force_update, args.no_post)
+                    s.run(args.force_update, args.no_post)
+                except IndexError as e:
+                    print_to_slack(f'Error {e}', error=True)
+                    pass
         else:
             print_to_slack('No updated feed data.')
         write_new_status_data(status_data)
