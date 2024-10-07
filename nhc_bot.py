@@ -93,7 +93,8 @@ if __name__ == '__main__':
                     s.run(args.force_update, args.no_post)
                 except IndexError as e:
                     print_to_slack(f'Error {e}', error=True)
-                    pass
+                    with open('last_out_index_error.json', 'w') as f:
+                        json.dump(out, fp=f)
         else:
             print_to_slack('No updated feed data.')
         write_new_status_data(status_data)
