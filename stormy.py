@@ -226,5 +226,5 @@ class Stormy:
         else:
             out = m.status_post(self.post_content)
         return True, (
-            f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+            f"Succesfully posted on {self.data_for_post['storm_name']} post id {out['id']} at {out['created_at']}. URL: {out['url']}"
         )
