@@ -93,9 +93,11 @@ class Stormy:
             if self.use_update:
                 self.data_for_post['update_link'] = self.data_list[5]['link']
                 self.data_for_post['update_title'] = self.data_list[5]['title']
-            soup = BeautifulSoup(self.data_list[6]['description'], 'html.parser')
-        else:
-            soup = BeautifulSoup(self.data_list[5]['description'], 'html.parser')
+
+        graphics_item = [x for x in self.data_list if x.get('title').endswith('Graphics')]
+        if graphics_item:
+            graphics_item = graphics_item[0]
+        soup = BeautifulSoup(graphics_item['description'], 'html.parser')
         img_soup = soup.find('img')
 
         self.graphic_url = img_soup['src']
