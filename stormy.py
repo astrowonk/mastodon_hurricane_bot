@@ -1,19 +1,21 @@
-import re
-from bs4 import BeautifulSoup
-import requests
-from html2text import html2text
-from config import API_TOKEN
-from mastodon import Mastodon
-import hashlib
-from time import sleep
-from utils import (
-    print_to_slack,
-    json_write,
-    write_new_status_data,
-    get_storm_data,
-    check_storm_guid_change,
-)
 import datetime
+import hashlib
+import re
+from time import sleep
+
+import requests
+from bs4 import BeautifulSoup
+from config import API_BASE_URL, API_TOKEN
+from html2text import html2text
+from mastodon import Mastodon
+
+from utils import (
+    check_storm_guid_change,
+    get_storm_data,
+    json_write,
+    print_to_slack,
+    write_new_status_data,
+)
 
 VERIFY = True
 
@@ -52,7 +54,7 @@ class Summary:
         )
         out = m.status_post(self.post_content, media_ids=med_dict)
         print(
-            f"Succesfully posted post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+            f'Succesfully posted post id {out["id"]} at {out["created_at"]}. URL: {out["url"]}'
         )
 
 
@@ -130,19 +132,19 @@ class Stormy:
         sentences = cleaner_summary.split('. ')
         self.non_headline = '. '.join(sentences[2:])
         hashtag = (
-            f"#{self.data_for_post['storm_name']}"
+            f'#{self.data_for_post["storm_name"]}'
             if self.data_for_post['storm_type']
             not in ('Potential Tropical Cyclone', 'Tropical Depression')
             else ''
         )
         ### F String
         if self.data_for_post.get('update_link'):
-            links = f"Update: {self.data_for_post['update_link']}\n\n"
+            links = f'Update: {self.data_for_post["update_link"]}\n\n'
             title = self.data_for_post['update_title'] + '\n\n'
         else:
             links = (
-                f"Track: {self.data_for_post.get('graphic_link')}\n"
-                f"Advisory {self.data_for_post['advisory_number']}: {self.data_for_post['full_advisory_link']}\n\n"
+                f'Track: {self.data_for_post.get("graphic_link")}\n'
+                f'Advisory {self.data_for_post["advisory_number"]}: {self.data_for_post["full_advisory_link"]}\n\n'
             )
 
         self.post_content = (
@@ -159,7 +161,7 @@ class Stormy:
         if check_storm_guid_change(self.data_for_post) or force_update:
             if not no_post:
                 print_to_slack('Posting to Mastodon.')
-                print_to_slack(f"Guid for storm {self.data_for_post['summary_guid']}")
+                print_to_slack(f'Guid for storm {self.data_for_post["summary_guid"]}')
                 p_bool, p_status = self.post_to_mastodon(
                     verify_image_hash=old_data.get('graphic_hash')
                 )
@@ -178,7 +180,7 @@ class Stormy:
 
         else:
             print_to_slack(
-                f"Summary for storm {self.data_for_post['storm_id']} unchanged at {datetime.datetime.now().isoformat()}"
+                f'Summary for storm {self.data_for_post["storm_id"]} unchanged at {datetime.datetime.now().isoformat()}'
             )
             print_to_slack('No posting to Mastodon')
 
@@ -199,7 +201,7 @@ class Stormy:
             use_image = False
         elif verify_image_hash:
             print_to_slack(
-                f"Checking image hash {verify_image_hash} vs {self.data_for_post['graphic_hash']} "
+                f'Checking image hash {verify_image_hash} vs {self.data_for_post["graphic_hash"]} '
             )
             attempts = 1
             while attempts < 3:
@@ -217,7 +219,7 @@ class Stormy:
         else:
             print_to_slack('Image verification disabled, no hash to check')
 
-        m = Mastodon(access_token=API_TOKEN, api_base_url='https://vmst.io')
+        m = Mastodon(access_token=API_TOKEN, api_base_url=API_BASE_URL)
         if self.data_for_post.get('graphic_data') and use_image:
             med_dict = m.media_post(
                 self.data_for_post['graphic_data'],
@@ -228,5 +230,5 @@ class Stormy:
         else:
             out = m.status_post(self.post_content)
         return True, (
-            f"Succesfully posted on {self.data_for_post['storm_name']} post id {out['id']} at {out['created_at']}. URL: {out['url']}"
+            f'Succesfully posted on {self.data_for_post["storm_name"]} post id {out["id"]} at {out["created_at"]}. URL: {out["url"]}'
         )
