@@ -107,8 +107,13 @@ class Stormy:
 
         pattern = r'_sm2\.png$'
         # change url so we can not use the small image, but a higher resolution one.
-        if self.graphic_url:
+        if self.graphic_url and 'wind_probs' not in self.graphic_url:
             self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
+        elif 'wind_probs' in self.graphic_url:
+            print_to_slack('Substituting Wind probs image')
+            self.graphic_url = re.sub(
+                r'_wind_probs.*?\.png$', '_5day_cone.png', self.graphic_url
+            )
         self.make_graphic_data()
 
     def make_graphic_data(self):
