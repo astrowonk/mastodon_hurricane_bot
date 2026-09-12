@@ -27,10 +27,12 @@ def check_rss_updated(CURRENT_URL):
     except:
         status_data = {}
 
-    r = requests.head(CURRENT_URL)
+    r = requests.head(
+        CURRENT_URL, headers={'User-Agent': 'Python Requests for marcos@marcoshuerta.com'}
+    )
     new_data = {key: r.headers[key] for key in our_headers}
     print_to_slack(
-        f"{datetime.datetime.now().isoformat()} new etag {new_data['etag']}, old etag {status_data['etag']}"
+        f'{datetime.datetime.now().isoformat()} new etag {new_data["etag"]}, old etag {status_data["etag"]}'
     )
     return any(status_data.get(x) != new_data.get(x) for x in our_headers), new_data
 
@@ -39,7 +41,9 @@ def process_url(url=None, text=None):
     """use lxml to extract the items and process into dicts"""
     assert url or text, 'must have string or url'
     if url:
-        r = requests.get(url)
+        r = requests.get(
+            url, headers={'User-Agent': 'Python Requests for marcos@marcoshuerta.com'}
+        )
         text = r.content
     mytree = etree.fromstring(text)
     theitems = mytree.getchildren()[0].findall('item')
