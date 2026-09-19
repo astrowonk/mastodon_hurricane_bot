@@ -5,7 +5,7 @@ from time import sleep
 
 import requests
 from bs4 import BeautifulSoup
-from config import API_BASE_URL, API_TOKEN
+from config import API_BASE_URL, API_TOKEN, PROXIES
 from html2text import html2text
 from mastodon import Mastodon
 
@@ -120,7 +120,13 @@ class Stormy:
         if not self.graphic_url:
             return
         r = requests.get(
-            self.graphic_url, verify=VERIFY, headers={'Cache-Control': 'no-cache'}
+            self.graphic_url,
+            verify=VERIFY,
+            proxies=PROXIES,
+            headers={
+                'Cache-Control': 'no-cache',
+                'User-Agent': 'Python Requests for marcos@marcoshuerta.com',
+            },
         )
         self.data_for_post['graphic_data'] = r.content
         self.data_for_post['graphic_headers'] = dict(r.headers)
@@ -182,6 +188,7 @@ class Stormy:
                     f'Posting disabled. Sending post content to log. Length: {len(self.post_content)}'
                 )
                 print_to_slack(self.post_content)
+                print(self.data_for_post['graphic_data'])
 
         else:
             print_to_slack(
