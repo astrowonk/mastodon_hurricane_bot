@@ -188,7 +188,7 @@ class Stormy:
                     f'Posting disabled. Sending post content to log. Length: {len(self.post_content)}'
                 )
                 print_to_slack(self.post_content)
-                print(self.data_for_post['graphic_data'])
+        # print(self.data_for_post['graphic_data'])
 
         else:
             print_to_slack(
