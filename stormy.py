@@ -9,7 +9,7 @@ from config import API_BASE_URL, API_TOKEN, PROXIES
 from html2text import html2text
 from mastodon import Mastodon
 
-from utils import (
+from helpers import (
     check_storm_guid_change,
     get_storm_data,
     json_write,
@@ -180,7 +180,9 @@ class Stormy:
                     print_to_slack(p_status)
                     del self.data_for_post['graphic_data']
                     storm_id = self.data_for_post['storm_id']
-                    json_write(self.data_for_post, f'{storm_id}_full_post_data.json')
+                    data_to_write = self.data_for_post
+                    data_to_write['graphic_image_src_url'] = self.graphic_url
+                    json_write(data_to_write, f'{storm_id}_full_post_data.json')
                 else:
                     print_to_slack(p_status, error=True)
             else:

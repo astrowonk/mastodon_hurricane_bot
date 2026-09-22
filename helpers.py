@@ -17,7 +17,7 @@ def print_to_slack(txt, error=False):
 
 def json_write(data, file_name):
     with open(file_name, 'w') as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
 
 def write_new_status_data(status_data):
