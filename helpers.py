@@ -1,7 +1,9 @@
-from config import SLACK_URL, SLACK_ERROR_URL
-import requests
 import json
 import os
+from urllib.parse import urlsplit, urlunsplit
+
+import requests
+from config import SLACK_ERROR_URL, SLACK_URL
 
 
 def print_to_slack(txt, error=False):
@@ -43,3 +45,11 @@ def check_storm_guid_change(data_for_post):
     guid_bool = old_post_data.get('summary_guid') != data_for_post.get('summary_guid')
     print_to_slack(f'New summary bool test is {summary_bool}. (Guid test is {guid_bool})')
     return summary_bool
+
+
+def fix_track_url(url):
+
+    parts = urlsplit(url)
+    cone_url = urlunsplit(parts._replace(query='cone'))
+
+    return cone_url

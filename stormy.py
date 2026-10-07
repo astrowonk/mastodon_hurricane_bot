@@ -6,16 +6,16 @@ from time import sleep
 import requests
 from bs4 import BeautifulSoup
 from config import API_BASE_URL, API_TOKEN, PROXIES
-from html2text import html2text
-from mastodon import Mastodon
-
 from helpers import (
     check_storm_guid_change,
+    fix_track_url,
     get_storm_data,
     json_write,
     print_to_slack,
     write_new_status_data,
 )
+from html2text import html2text
+from mastodon import Mastodon
 
 VERIFY = True
 
@@ -103,7 +103,7 @@ class Stormy:
         img_soup = soup.find('img')
 
         self.graphic_url = img_soup['src']
-        self.data_for_post['graphic_link'] = soup.find('a')['href']
+        self.data_for_post['graphic_link'] = fix_track_url(soup.find('a')['href'])
 
         pattern = r'_sm2\.png$'
         # change url so we can not use the small image, but a higher resolution one.
