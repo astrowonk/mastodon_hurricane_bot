@@ -7,7 +7,7 @@ import json
 import datetime
 from stormy import Stormy, Summary
 import traceback
-from utils import print_to_slack, write_new_status_data
+from helpers import print_to_slack, write_new_status_data
 
 VERIFY = False
 
