@@ -166,6 +166,12 @@ class Stormy:
             f'{links}'
             f'{hashtag}'
         )
+        self.fix_content()
+
+    def fix_content(self):
+        self.post_content.replace('GULF OF AMERICA', 'GULF OF MEXICO').replace(
+            'Gulf of America', 'Gulf of Mexico'
+        )
 
     def run(self, force_update=False, no_post=False):
         old_data = get_storm_data(self.data_for_post)
