@@ -47,7 +47,7 @@ def process_url(url=None, text=None):
         text = r.content
     mytree = etree.fromstring(text)
     theitems = mytree.getchildren()[0].findall('item')
-    return [process_item(x) for x in theitems]
+    return [process_item(x) for x in theitems], text
 
 
 def make_list_of_storms(out):
@@ -87,7 +87,7 @@ if __name__ == '__main__':
             if args.force_update:
                 print_to_slack('update forced, ignoring status header data.')
 
-            out = process_url(CURRENT_URL)
+            out, raw_xml = process_url(CURRENT_URL)
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
             for storm_data in storm_list:
@@ -106,3 +106,5 @@ if __name__ == '__main__':
         tb = ''.join(traceback.format_exception(e))
         print_to_slack(f'Error in Huricane bot: \n{tb}', error=True)
         print_to_slack(s.post_content, error=True)
+        with open(f'crash_xml.xml_{datetime.datetime.now().isoformat()}', 'w') as f:
+            f.write(raw_xml)
