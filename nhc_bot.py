@@ -105,6 +105,5 @@ if __name__ == '__main__':
     except Exception as e:
         tb = ''.join(traceback.format_exception(e))
         print_to_slack(f'Error in Huricane bot: \n{tb}', error=True)
-        print_to_slack(s.post_content, error=True)
         with open(f'crash_xml.xml_{datetime.datetime.now().isoformat()}', 'w') as f:
             f.write(raw_xml)
