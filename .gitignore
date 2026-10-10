@@ -10,3 +10,5 @@ data/
 test.gif
 *.ipynb
 index-at.xml
+crash_xml.xml*
+crash*.xml

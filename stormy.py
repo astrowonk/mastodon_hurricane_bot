@@ -59,6 +59,8 @@ class Summary:
 
 
 class Stormy:
+    graphic_url = None
+
     def __init__(self, data_list, use_update=False):
         """Inited with a list of 6 dictionaries created by process_item and make_list_of_storms"""
         # assert len(data_list) == 6, 'data set must be length 6'
@@ -104,19 +106,21 @@ class Stormy:
             graphics_item = graphics_item[0]
         soup = BeautifulSoup(graphics_item['description'], 'html.parser')
         img_soup = soup.find('img')
+        if img_soup:
+            self.graphic_url = img_soup['src']
+            self.data_for_post['graphic_link'] = fix_track_url(soup.find('a')['href'])
 
-        self.graphic_url = img_soup['src']
-        self.data_for_post['graphic_link'] = fix_track_url(soup.find('a')['href'])
-
-        pattern = r'_sm2\.png$'
-        # change url so we can not use the small image, but a higher resolution one.
-        if self.graphic_url and 'wind_probs' not in self.graphic_url:
-            self.graphic_url = re.sub(pattern=pattern, repl='.png', string=self.graphic_url)
-        elif 'wind_probs' in self.graphic_url:
-            print_to_slack('Substituting Wind probs image')
-            self.graphic_url = re.sub(
-                r'_wind_probs.*?\.png$', '_5day_cone.png', self.graphic_url
-            )
+            pattern = r'_sm2\.png$'
+            # change url so we can not use the small image, but a higher resolution one.
+            if self.graphic_url and 'wind_probs' not in self.graphic_url:
+                self.graphic_url = re.sub(
+                    pattern=pattern, repl='.png', string=self.graphic_url
+                )
+            elif 'wind_probs' in self.graphic_url:
+                print_to_slack('Substituting Wind probs image')
+                self.graphic_url = re.sub(
+                    r'_wind_probs.*?\.png$', '_5day_cone.png', self.graphic_url
+                )
         self.make_graphic_data()
 
     def make_graphic_data(self):
@@ -187,7 +191,8 @@ class Stormy:
                 )
                 if p_bool:
                     print_to_slack(p_status)
-                    del self.data_for_post['graphic_data']
+                    if 'graphic_data' in self.data_for_post:
+                        del self.data_for_post['graphic_data']
                     storm_id = self.data_for_post['storm_id']
                     data_to_write = self.data_for_post
                     data_to_write['graphic_image_src_url'] = self.graphic_url
