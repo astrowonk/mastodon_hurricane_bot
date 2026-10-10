@@ -80,6 +80,12 @@ if __name__ == '__main__':
     parser.add_argument('--force-update', action='store_true', default=False)
 
     args = parser.parse_args()
+    try:
+        out, raw_xml = process_url(CURRENT_URL)
+    except Exception as e:
+        tb = ''.join(traceback.format_exception(e))
+
+        print_to_slack(f'Problem with process url \n{tb}')
 
     try:
         is_updated, status_data = check_rss_updated(CURRENT_URL)
@@ -87,7 +93,6 @@ if __name__ == '__main__':
             if args.force_update:
                 print_to_slack('update forced, ignoring status header data.')
 
-            out, raw_xml = process_url(CURRENT_URL)
             storm_list = make_list_of_storms(out)
             print_to_slack(f'Storm list is length {len(storm_list)}')
             for storm_data in storm_list:
