@@ -91,10 +91,13 @@ class Stormy:
         self.data_for_post['storm_type'] = rem.group(1)
         self.data_for_post['storm_name'] = rem.group(2).strip()
 
-        if self.data_list[5]['title'].endswith('Update Statement'):
-            if self.use_update:
-                self.data_for_post['update_link'] = self.data_list[5]['link']
-                self.data_for_post['update_title'] = self.data_list[5]['title']
+        try:
+            if self.data_list[5]['title'].endswith('Update Statement'):
+                if self.use_update:
+                    self.data_for_post['update_link'] = self.data_list[5]['link']
+                    self.data_for_post['update_title'] = self.data_list[5]['title']
+        except IndexError:
+            pass
 
         graphics_item = [x for x in self.data_list if x.get('title').endswith('Graphics')]
         if graphics_item:
