@@ -227,7 +227,7 @@ class Stormy:
                 f'This appears to be an update - {self.data_for_post.get("update_title")} No image.'
             )
             use_image = False
-        elif verify_image_hash:
+        elif verify_image_hash and self.data_for_post.get('graphic_hash'):
             print_to_slack(
                 f'Checking image hash {verify_image_hash} vs {self.data_for_post["graphic_hash"]} '
             )
